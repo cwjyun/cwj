@@ -1,16 +1,22 @@
 <?php
 
-$params = require __DIR__ . '/'.YII_ENV.'_params.php';
-$db = require __DIR__ . '/'.YII_ENV.'_db.php';
+$params = require __DIR__ . '/' . YII_ENV . '_params.php';
+$db = require __DIR__ . '/' . YII_ENV . '_db.php';
 
 $config = [
     'id' => 'basic',
-    'basePath' => dirname(__DIR__).'/../',
+    'basePath' => dirname(__DIR__) . '/../',
     'bootstrap' => ['log'],
-    'defaultRoute'=>'my/index',//默认路由，控制器+方法
+    'defaultRoute' => 'my/index',//默认路由，控制器+方法
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
+    ],
+    //模块
+    'modules' => [
+        'dome' => [
+            'class' => 'app\module\dome\dome'
+        ],
     ],
     'components' => [
         'request' => [
@@ -52,14 +58,8 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+        //模块
+
     ],
     'params' => $params,
 ];
@@ -70,14 +70,14 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['172.*.*.*', '::1','47.*.*.*'],
+        'allowedIPs' => ['172.*.*.*', '::1', '47.*.*.*'],
     ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['172.*.*.*', '::1','47.*.*.*'],
+        'allowedIPs' => ['172.*.*.*', '::1', '47.*.*.*'],
     ];
 }
 

@@ -8,6 +8,7 @@ $config = [
     'basePath' => dirname(__DIR__) . '/../',
     'bootstrap' => ['log'],
     'defaultRoute' => 'my/index',//默认路由，控制器+方法
+    'name'=>'我的服务器',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',

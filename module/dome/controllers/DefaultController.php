@@ -2,6 +2,7 @@
 
 namespace app\module\dome\controllers;
 
+use Codeception\Module\Yii1;
 use yii\web\Controller;
 
 /**

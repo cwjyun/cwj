@@ -1,7 +1,7 @@
 <?php
 
 $params = require __DIR__ . '/'.YII_ENV.'_params.php';
-$db = require __DIR__ . '/'.YII_ENV.'_params.php';
+$db = require __DIR__ . '/'.YII_ENV.'_db.php';
 
 $config = [
     'id' => 'basic',

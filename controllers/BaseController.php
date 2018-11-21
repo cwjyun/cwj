@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use yii\web\controller;
+use yii\web\Controller;
 
 
 class BaseController extends Controller

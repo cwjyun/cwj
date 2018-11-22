@@ -17,4 +17,9 @@ class DefaultController extends Controller
     {
         return $this->render('index');
     }
+
+
+    public function actionInstall_soft(){
+        return $this->render('install_soft');
+    }
 }

@@ -124,7 +124,7 @@ use yii\helpers\Html;
             <div class="col_allw300 col_last">
                 <h2>Featured Sites</h2>
                 <div class="fp_lw_box">
-                    <div class="image_frame"><span></span><?= Html::img('@web/dome/images/templatemo_image_01.jp',[ 'alt'=>1])?></div
+                    <div class="image_frame"><span></span><?= Html::img('@web/dome/images/templatemo_image_01.jpg',[ 'alt'=>1])?></div
                     ><p><em>Morbi sed nulla ac est cursus suscipit ac lectus.</em></p>
                 </div>
                 <div class="fp_lw_box">

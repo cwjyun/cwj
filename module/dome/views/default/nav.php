@@ -1,5 +1,5 @@
 <div id="templatmeo_header">
-    <div id="site_title"><h1><a href="#">Free CSS Templates</a></h1></div>
+    <div id="site_title"><h1><a href="#">开心就好</a></h1></div>
     <div id="templatemo_menu">
         <ul>
             <li><a href="index.html" class="current">Home</a></li>

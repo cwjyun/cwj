@@ -60,7 +60,7 @@ use yii\helpers\Html;
             </script>
         </div>
         <div id="mid_left">
-            <div id="mid_title">Web Design Company</div>
+            <div id="mid_title">欢迎来到，开心就好</div>
             <p>Aliquam in odio ut ipsum mollis facilisis. Integer est sem, dignissim quis auctor vel, dapibus vel massa. Curabitur vulputate ligula vel mi semper tempus. Vivamus volutpat, elit non tempor vehicula.</p>
             <div id="learn_more"><a href="#">Learn More</a></div>
         </div>

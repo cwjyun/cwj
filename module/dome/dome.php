@@ -7,6 +7,7 @@ namespace app\module\dome;
  */
 class dome extends \yii\base\Module
 {
+    public $layout = 'main.php';
     /**
      * {@inheritdoc}
      */

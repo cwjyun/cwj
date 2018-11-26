@@ -1,8 +1,6 @@
 <?php
 
-
-use yii\web\Controller;
-
+namespace app\module\wechat\controllers;
 /**
  * Default controller for the `Wechat` module
  */

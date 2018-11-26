@@ -17,6 +17,9 @@ $config = [
         'dome' => [
             'class' => 'app\module\dome\dome'
         ],
+        'wechat' => [
+            'class' => 'app\module\wechat\wechat'
+        ],
     ],
     'components' => [
         'request' => [

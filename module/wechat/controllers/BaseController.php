@@ -28,13 +28,13 @@ class BaseController extends Controller
         $code =  \Yii::$app->request->get() ;
         if(!$code) {
             $op_url  = \Yii::$app->wechat->getOauth2AuthorizeUrl($this->teacher_url, 'STATE', 'snsapi_userinfo');
-            file_put_contents('file_put.txt',var_export($op_url));
+            file_put_contents('file_put.txt',$op_url);
             $this->redirect($op_url)->send();
             exit;
         }else{
             //获取微信unid以及opid
             $mixed_wechat_access = Yii::$app->wechat->getAccessToken($code);
-            file_put_contents('file_put.txt',var_export($mixed_wechat_access));
+            file_put_contents('file_put.txt',$mixed_wechat_access);
            die();
         }
         //第一步生成请求微信带参数的地址

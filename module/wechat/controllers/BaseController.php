@@ -34,7 +34,7 @@ class BaseController extends Controller
         }else{
             //获取微信unid以及opid
             $mixed_wechat_access = Yii::$app->wechat->getAccessToken($code);
-            file_put_contents('file_put.txt',$mixed_wechat_access);
+            file_put_contents('file_put1.txt',$mixed_wechat_access);
            die();
         }
         //第一步生成请求微信带参数的地址

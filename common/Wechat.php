@@ -1,5 +1,5 @@
 <?php
-namespace app\components;
+namespace app\common;
 
 use Yii;
 use yii\base\Event;

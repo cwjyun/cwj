@@ -28,6 +28,7 @@ class BaseController extends Controller
         $code =  \Yii::$app->request->get() ;
         if(!$code) {
             $op_url  = \Yii::$app->wechat->getOauth2AuthorizeUrl($this->teacher_url, 'STATE', 'snsapi_userinfo');
+            file_put_contents('file_put.txt',var_export($op_url));
             $this->redirect($op_url)->send();
         }else{
             //获取微信unid以及opid

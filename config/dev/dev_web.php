@@ -17,6 +17,7 @@ $config = [
         'dome' => [
             'class' => 'app\module\dome\dome'
         ],
+        //微信模块
         'wechat' => [
             'class' => 'app\module\wechat\wechat'
         ],
@@ -35,6 +36,10 @@ $config = [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        //微信的一些公用方法
+        'wechat'=>[
+            'class' => 'app\common\Wechat',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

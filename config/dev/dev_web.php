@@ -40,6 +40,10 @@ $config = [
         //微信的一些公用方法
         'wechat'=>[
             'class' => 'app\common\Wechat',
+            'appId' => 'wxf36cf24b286581f5',
+            'appSecret' => '950b0ff63524aafd7d385dc9e27df8f1',
+            'token' => '',
+            'wechatRedirect' => 'http://cwj.test/get-weixin-code.html?',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

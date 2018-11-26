@@ -40,7 +40,7 @@ $config = [
         //微信的一些公用方法
         'wechat'=>[
             'class' => 'app\common\Wechat',
-            'appId' => 'wxf36cf24b286581f5',
+            'appId' => 'wx378d3395a6f41442',
             'appSecret' => '950b0ff63524aafd7d385dc9e27df8f1',
             'token' => '',
             'wechatRedirect' => 'http://47.93.246.251/get-weixin-code.html?',

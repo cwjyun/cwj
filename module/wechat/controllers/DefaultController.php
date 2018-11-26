@@ -1,13 +1,12 @@
 <?php
 
-namespace app\module\wechat\controllers;
 
 use yii\web\Controller;
 
 /**
  * Default controller for the `Wechat` module
  */
-class DefaultController extends Controller
+class DefaultController extends \app\module\wechat\controllers\BaseController
 {
     /**
      * Renders the index view for the module

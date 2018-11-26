@@ -30,7 +30,9 @@ class BaseController extends Controller
             $op_url  = \Yii::$app->wechat->getOauth2AuthorizeUrl($this->teacher_url, 'STATE', 'snsapi_userinfo');
             $this->redirect($op_url)->send();
         }else{
-           echo $code;
+            //获取微信unid以及opid
+            $mixed_wechat_access = Yii::$app->wechat->getOauth2AccessToken($code['code']);
+            print_r($mixed_wechat_access);
            die();
         }
         //第一步生成请求微信带参数的地址

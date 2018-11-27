@@ -37,14 +37,6 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        //微信的一些公用方法
-        'wechat'=>[
-            'class' => 'app\common\Wechat',
-            'appId' => 'wx378d3395a6f41442',
-            'appSecret' => 'd43f6601e79b0474b72e126514fec74c',
-            'token' => '',
-            'wechatRedirect' => 'http://47.93.246.251/get-weixin-code.html?',
-        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
@@ -58,6 +50,11 @@ $config = [
             'showScriptName' => false,
             'suffix' => '.html',
             'rules' => [
+                'class' => 'yii\rest\UrlRule',
+                'controller' => 'wechat',
+                'extraPatterns' => [
+                    'GET valid' => 'valid',
+                ],
             ],
         ],
         'log' => [
@@ -82,14 +79,14 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['172.*.*.*', '::1', '47.*.*.*'],
+        'allowedIPs' => ['172.*.*.*', '::1', '47.93.246.251'],
     ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['172.*.*.*', '::1', '47.*.*.*'],
+        'allowedIPs' => ['172.*.*.*', '::1', '47.93.246.251'],
     ];
 }
 

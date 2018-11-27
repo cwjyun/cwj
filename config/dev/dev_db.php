@@ -1,11 +1,13 @@
 <?php
 
 return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=wechat',
-    'username' => 'root',
-    'password' => '3344134',
-    'charset' => 'utf8',
+    'wechat'=>[
+        'class' => 'yii\db\Connection',
+        'dsn' => 'mysql:host=localhost;dbname=wechat',
+        'username' => 'root',
+        'password' => '3344134',
+        'charset' => 'utf8',
+    ]
 
     // Schema cache options (for production environment)
     //'enableSchemaCache' => true,

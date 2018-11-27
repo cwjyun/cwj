@@ -17,6 +17,10 @@ $config = [
         'dome' => [
             'class' => 'app\module\dome\dome'
         ],
+        //微信模块
+        'wechat' => [
+            'class' => 'app\module\wechat\wechat'
+        ],
     ],
     'components' => [
         'request' => [
@@ -46,6 +50,11 @@ $config = [
             'showScriptName' => false,
             'suffix' => '.html',
             'rules' => [
+//                'class' => 'yii\rest\UrlRule',
+//                'controller' => 'wechat',
+//                'extraPatterns' => [
+//                    'GET valid' => 'valid',
+//                ]
             ],
         ],
         'log' => [

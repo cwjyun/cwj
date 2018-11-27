@@ -75,6 +75,7 @@ $config = [
 ];
 
 if (YII_ENV_DEV) {
+    die("xx");
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [

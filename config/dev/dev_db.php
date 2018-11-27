@@ -3,7 +3,7 @@
 return [
     'wechat'=>[
         'class' => 'yii\db\Connection',
-        'dsn' => 'mysql:host=localhost;dbname=wechat',
+        'dsn' => 'mysql:host=47.93.246.251;dbname=wechat',
         'username' => 'root',
         'password' => '3344134',
         'charset' => 'utf8',

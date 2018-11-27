@@ -2,9 +2,7 @@
 
 namespace app\controllers;
 
-use app\common\Wechat;
 use Yii;
-use app\models\wechat\WechatUser;
 
 class MyController extends BaseController
 {

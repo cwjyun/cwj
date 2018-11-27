@@ -3,6 +3,6 @@
 return [
     'adminEmail' => 'admin@example.com',
     'wechat' =>[
-        'token' => 'your token',
+        'token' => 'wx378d3395a6f41442',
     ],
 ];

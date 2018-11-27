@@ -17,10 +17,6 @@ $config = [
         'dome' => [
             'class' => 'app\module\dome\dome'
         ],
-        //微信模块
-        'wechat' => [
-            'class' => 'app\module\wechat\wechat'
-        ],
     ],
     'components' => [
         'request' => [

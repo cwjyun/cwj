@@ -75,7 +75,6 @@ $config = [
 ];
 
 if (YII_ENV_DEV) {
-    die("xx");
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
@@ -91,5 +90,6 @@ if (YII_ENV_DEV) {
         'allowedIPs' => ['127.0.0.0','172.*.*.*', '::1','47.*.*.*','47.93.246.251','172.16.7.230'],
     ];
 }
-
+  print_r($config['bootstrap']);
+die();
 return $config;

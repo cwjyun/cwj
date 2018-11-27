@@ -66,7 +66,7 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
+        'wechat' => $db['wechat'],
         //模块
 
     ],

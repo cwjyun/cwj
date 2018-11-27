@@ -515,9 +515,6 @@ class Wechat extends Component
         } elseif ($this->wechatRedirect === null) {
             throw new InvalidConfigException('The redirect property must be set.');
         }
-
-        echo $this->token;
-        die();
     }
 
     /**
@@ -1281,6 +1278,8 @@ class Wechat extends Component
                 'scope' => $scope,
                 'state' => $state,
             ]) . '#wechat_redirect';
+        echo $url;
+        die();
         return $url;
     }
 

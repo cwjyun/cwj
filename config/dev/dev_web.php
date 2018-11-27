@@ -50,11 +50,11 @@ $config = [
             'showScriptName' => false,
             'suffix' => '.html',
             'rules' => [
-                'class' => 'yii\rest\UrlRule',
-                'controller' => 'wechat',
-                'extraPatterns' => [
-                    'GET valid' => 'valid',
-                ],
+//                'class' => 'yii\rest\UrlRule',
+//                'controller' => 'wechat',
+//                'extraPatterns' => [
+//                    'GET valid' => 'valid',
+//                ]
             ],
         ],
         'log' => [

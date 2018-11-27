@@ -41,7 +41,7 @@ $config = [
         'wechat'=>[
             'class' => 'app\common\Wechat',
             'appId' => 'wx378d3395a6f41442',
-            'appSecret' => '950b0ff63524aafd7d385dc9e27df8f1',
+            'appSecret' => 'd43f6601e79b0474b72e126514fec74c',
             'token' => '',
             'wechatRedirect' => 'http://47.93.246.251/get-weixin-code.html?',
         ],

@@ -1278,8 +1278,6 @@ class Wechat extends Component
                 'scope' => $scope,
                 'state' => $state,
             ]) . '#wechat_redirect';
-        echo $url;
-        die();
         return $url;
     }
 

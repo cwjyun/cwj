@@ -515,7 +515,9 @@ class Wechat extends Component
         } elseif ($this->wechatRedirect === null) {
             throw new InvalidConfigException('The redirect property must be set.');
         }
-        die("xx");
+
+        echo $this->token;
+        die();
     }
 
     /**

@@ -66,6 +66,7 @@ $config = [
                 ],
             ],
         ],
+        //微信DB
         'wechat' => $db['wechat'],
         //模块
 

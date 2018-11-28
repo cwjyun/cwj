@@ -50,12 +50,12 @@ class TokenAction extends Action
             echo 'TOKEN is not defined!';
         } else {
             $tmpArr = array($token, $timestamp, $nonce);
-            file_put_contents('cwj.text',$tmpArr);
             // use SORT_STRING rule
             sort($tmpArr, SORT_STRING);
             $tmpStr = implode($tmpArr);
             $tmpStr = sha1($tmpStr);
-
+            $xxx = $tmpStr."======".$signature;
+            file_put_contents('cwj.text',$xxx);
             if ($tmpStr == $signature) {
                 return true;
             } else {

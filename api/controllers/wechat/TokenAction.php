@@ -17,15 +17,13 @@ class TokenAction extends Action
     public function run($echostr, $signature, $timestamp, $nonce)
     {
         try {
-            $xxx = [
+            $get = [
                 'echostr' => $echostr,
                 'signature' => $signature,
                 'timestamp' => $timestamp,
                 'nonce' => $nonce
             ];
-            $get = json_encode($xxx);
-            file_put_contents('cwj.test',$get);
-            $this->valid($xxx);
+            $this->valid($get);
 
         } catch (\Exception $e) {
 
@@ -52,6 +50,7 @@ class TokenAction extends Action
             echo 'TOKEN is not defined!';
         } else {
             $tmpArr = array($token, $timestamp, $nonce);
+            file_put_contents('cwj.text',$tmpArr);
             // use SORT_STRING rule
             sort($tmpArr, SORT_STRING);
             $tmpStr = implode($tmpArr);

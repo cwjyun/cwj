@@ -14,6 +14,7 @@ class ArticleController extends ActiveController
 
     public function init()
     {
+        parent::init();
     }
 
     public function actionIndex()

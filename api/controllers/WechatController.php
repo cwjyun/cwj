@@ -22,6 +22,7 @@ class WechatController extends ActiveController
      */
     public function actions()
     {
+        file_put_contents('cwj.test','111');
         $actions = parent::actions();
         unset($actions['delete'], $actions['create']);
         return [

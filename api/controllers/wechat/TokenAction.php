@@ -17,6 +17,7 @@ class TokenAction extends Action
     public function run($echostr, $signature, $timestamp, $nonce)
     {
         try {
+            file_put_contents('cwj.test','111');
             $this->valid([
                 'echostr' => $echostr,
                 'signature' => $signature,

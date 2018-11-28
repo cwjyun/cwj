@@ -11,12 +11,6 @@ class WechatController extends ActiveController
 {
 
     public $modelClass = '\common\models\Wechat';
-
-    public function init()
-    {
-        parent::init();
-    }
-
     /**
      * {@inheritdoc}
      */

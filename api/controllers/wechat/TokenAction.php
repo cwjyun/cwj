@@ -54,8 +54,6 @@ class TokenAction extends Action
             sort($tmpArr, SORT_STRING);
             $tmpStr = implode($tmpArr);
             $tmpStr = sha1($tmpStr);
-            $xxx = $tmpStr."======".$signature;
-            file_put_contents('cwj.text',$xxx);
             if ($tmpStr == $signature) {
                 return true;
             } else {

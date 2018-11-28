@@ -17,12 +17,15 @@ class TokenAction extends Action
     public function run($echostr, $signature, $timestamp, $nonce)
     {
         try {
-            $this->valid([
+            $xxx = [
                 'echostr' => $echostr,
                 'signature' => $signature,
                 'timestamp' => $timestamp,
                 'nonce' => $nonce
-            ]);
+            ];
+            $get = json_encode($xxx);
+            file_put_contents('cwj.test',$get);
+            $this->valid($xxx);
 
         } catch (\Exception $e) {
 

@@ -4,6 +4,7 @@ namespace app\controllers\wechat;
 
 use Yii;
 use yii\rest\Action;
+use app\common\CommonClass;
 
 
 class TokenAction extends Action
@@ -19,6 +20,11 @@ class TokenAction extends Action
     {
         try {
             if (!Yii::$app->wechat->checkSignature($signature, $timestamp, $nonce)) {
+                CommonClass::ErrorSendMail('获取token错误',[
+                    'signature'=>$signature,
+                     'timestamp'=>$timestamp,
+                     'nonce'=>$nonce
+                ]);
                 return false;
             }
             return true;

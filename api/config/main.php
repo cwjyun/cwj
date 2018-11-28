@@ -49,7 +49,13 @@ return [
                 ],
             ],
         ],
-
+        'wechat' => [
+            'class' => 'app\components\Wechat',
+            'appId' => 'wx378d3395a6f41442',
+            'appSecret' => 'oexXSyfhFZIrpO5Xi8ohEkfpRsG4djbmKTKIJnbj3XD',
+            'token' => 'cwjyun',
+            'wechatRedirect' => 'http://47.93.246.251/get-weixin-code.html?',
+        ]
     ],
     'params' => $params,
 ];

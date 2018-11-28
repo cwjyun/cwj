@@ -6,7 +6,11 @@ use Yii;
 class CommonClass
 {
 
-    //发送错误邮件
+    /**
+     * @param $title 邮件标题
+     * @param $data  邮件内容
+     * @return bool
+     */
     public static function ErrorSendMail($title, $data)
     {
         $mail = Yii::$app->mailer->compose();

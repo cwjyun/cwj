@@ -26,6 +26,7 @@ class WechatController extends ActiveController
         $actions = parent::actions();
         unset($actions['delete'], $actions['create']);
         return [
+            //获取微信token
             'token' => [
                 'class' => 'app\controllers\wechat\TokenAction',
                 'modelClass' => $this->modelClass

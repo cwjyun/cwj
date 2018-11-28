@@ -37,6 +37,19 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            //'viewPath' => '@common/mail',//发送模板
+            'useFileTransport' =>false,//这句一定有，false发送邮件，true只是生成邮件在runtime文件夹下，不发邮件
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => $params['mailerHost'],
+                'username' => $params['mailerUserName'],
+                'password' => $params['mailerPassword'],
+                'port' =>$params['mailerPort'],
+                'encryption' => 'tls',//ssl
+            ],
+        ],
 
         'urlManager' => [
             'enablePrettyUrl' => true,

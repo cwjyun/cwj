@@ -1,18 +1,11 @@
 <?php
 
-namespace api\controllers\wechat;
+namespace app\controllers\wechat;
 
 use Yii;
-use yii\base\Exception;
 use yii\rest\Action;
 
-class GettokenAction extends Action {
-
-    const ADD_POINTS = 1;
-
-    const MINUS_POINTS = 2;
-
-
+class TokenAction extends Action {
     /**
      * @param $ppid
      * @param string $type
@@ -22,10 +15,10 @@ class GettokenAction extends Action {
      */
     public function run()
     {
-
         try {
-            die("xxx");
 
+            die("成功调用接口");
+            
         } catch (\Exception $e) {
 
         }

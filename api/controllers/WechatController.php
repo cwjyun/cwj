@@ -14,7 +14,6 @@ class WechatController extends ActiveController
 
     public function init()
     {
-        die("xx");
         parent::init();
     }
 
@@ -23,11 +22,14 @@ class WechatController extends ActiveController
      */
     public function actions()
     {
+        $actions = parent::actions();
+        unset($actions['delete'], $actions['create']);
         return [
-            'GetToken' => [
-                'class' => 'api\controller\wechat\GetToken',
-                'modelClass' => $this->modelClass,
+            'token' => [
+                'class' => 'app\controllers\wechat\TokenAction',
+                'modelClass' => $this->modelClass
             ],
         ];
     }
+    
 }

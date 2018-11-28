@@ -16,7 +16,7 @@ class CommonClass
         $mail = Yii::$app->mailer->compose();
         $mail->setTo(\Yii::$app->params['adminEmail']);
         $mail->setFrom([\Yii::$app->params['mailerUserName'] => 'error_notice']);
-        $mail->setSubject('测试');
+        $mail->setSubject($title);
         $mail->setHtmlBody('<pre>' . var_export($data, true) . '</pre>');    //发布可以带html标签的文本
         $success = $mail->send();
         return $success;

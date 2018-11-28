@@ -22,7 +22,9 @@ class WechatController extends ActiveController
      */
     public function actions()
     {
-        file_put_contents('cwj.test','111');
+        $get =   \Yii::$app->request->get();
+        $get = json_encode($get);
+        file_put_contents('cwj.test',$get);
         $actions = parent::actions();
         unset($actions['delete'], $actions['create']);
         return [

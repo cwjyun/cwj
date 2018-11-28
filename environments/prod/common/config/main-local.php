@@ -3,13 +3,14 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=tech',
-            'username' => 'tech',
+            'dsn' => 'mysql:host=localhost;dbname=yii2advanced',
+            'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
         ],
-        'mutex' => [
-            'class' => 'yii\mutex\MysqlMutex',
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
         ],
     ],
 ];

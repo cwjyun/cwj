@@ -1,13 +1,11 @@
 <?php
-
 namespace backend\controllers;
 
-use common\behavior\NoCsrf;
-use common\models\LoginForm;
 use Yii;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
 use yii\web\Controller;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use common\models\LoginForm;
 
 /**
  * Site controller
@@ -15,7 +13,7 @@ use yii\web\Controller;
 class SiteController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -40,18 +38,11 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
-            'csrf' => [
-                'class' => NoCsrf::className(),
-                'controller' => $this,
-                'actions' => [
-                    'index'
-                ]
-            ]
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function actions()
     {
@@ -87,6 +78,8 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
+            $model->password = '';
+
             return $this->render('login', [
                 'model' => $model,
             ]);

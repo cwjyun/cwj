@@ -16,7 +16,7 @@ use Yii;
  * @property int $created_at 创建时间
  * @property int $updated_at 最后修改时间
  */
-class Article extends \yii\db\ActiveRecord
+class Wechat extends \yii\db\ActiveRecord
 {
     /**
      *

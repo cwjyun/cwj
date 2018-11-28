@@ -45,7 +45,7 @@ return [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'article'
+                    'controller' => 'wechat'
                 ],
             ],
         ],

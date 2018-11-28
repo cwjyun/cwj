@@ -22,7 +22,6 @@ class WechatController extends ActiveController
      */
     public function actions()
     {
-        $get =   \Yii::$app->request->get();
         $actions = parent::actions();
         unset($actions['delete'], $actions['create']);
         return [

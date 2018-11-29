@@ -7,7 +7,7 @@ use yii\rest\Action;
 use app\common\CommonClass;
 
 
-class TokenAction extends Action
+class OpidAction extends Action
 {
     /**
      * @param $ppid
@@ -19,8 +19,9 @@ class TokenAction extends Action
     public function run($url)
     {
         try {
+            die("xx");
             $op_url = \Yii::$app->wechat->getOauth2AuthorizeUrl($url, 'STATE', 'snsapi_userinfo');
-            return json_encode(['url'=>$op_url]);
+            die(json_encode(['url'=>$op_url]));
         } catch (\Exception $e) {
             var_dump($e);
         }

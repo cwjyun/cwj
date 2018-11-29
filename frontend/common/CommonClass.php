@@ -49,6 +49,8 @@ class CommonClass
         if (strtoupper($method) == 'GET' && !empty($dataPara)) {
             $url = $url . '?' . $dataPara;
         }
+        echo $url;
+        die();
         $curl = new Curl();
         $curl->setOption(CURLOPT_SSL_VERIFYPEER, FALSE)
             ->setOption(CURLOPT_SSL_VERIFYHOST, FALSE)
@@ -72,6 +74,8 @@ class CommonClass
         }
         $responseCode = $curl->responseCode;
         $result = $curl->response;
+        var_dump($responseCode);
+        die();
         //successful 请求已成功，请求所希望的响应头或数据体将随此响应返回
         if ($responseCode == 200) {
             $result = json_decode($result, true);
@@ -95,17 +99,21 @@ class CommonClass
         $sendmailArr['Api.Net_Return'] = $result;
         $sendmailArr['ExecTime'] = date('Y-m-d H:i:s');
         $sendmailContent = $sendmailArr;
-        print_r($sendmailContent);
-        die();
         //self::ErrorSendMail($responseCode, $sendmailContent);
         //---+++++++++++++----}}
         return false;
     }
 
+
+
+
+
+    
+
     public static function getToken()
     {
-        $get_token = Yii::$app->params['wechat_api']['getToken'];
-        return self::postCurl_system($get_token,[],'GET');
+        $get_token = Yii::$app->params['wechat_api']['get_opid'];
+        return self::postCurl_system($get_token,['url'=>1111],'GET');
     }
 
 

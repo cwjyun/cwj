@@ -13,7 +13,7 @@ use yii\rest\ActiveController;
 class CwjController extends ActiveController
 {
 
-    public $modelClass = '\common\models\Cwj';
+    public $modelClass = '\common\models\cwj';
 
 
     public function init()

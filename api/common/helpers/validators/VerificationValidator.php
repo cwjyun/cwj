@@ -5,10 +5,10 @@
  * @license 
  */
 
-namespace common\helpers\validators;
+namespace api\common\helpers\validators;
 
 use Yii;
-use frontend\models\Signature;
+use api\models\Signature;
 
 
 class VerificationValidator extends Validator {

@@ -1,6 +1,6 @@
 <?php
 
-namespace common;
+namespace api\common;
 
 /**
  * 返回值类

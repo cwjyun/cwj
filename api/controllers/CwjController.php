@@ -6,6 +6,7 @@ use Yii;
 use app\common\CommonClass;
 use yii\rest\ActiveController;
 use yii\helpers\ArrayHelper;
+use common\helpers\ValidateHelper;
 
 
 
@@ -43,12 +44,7 @@ class CwjController extends ActiveController
     public function beforeAction($action)
     {
         parent::beforeAction($this->action);
-        $request = Yii::$app->request;
-        $method = strtolower($request->getMethod());
-        $data = Yii::$app->request->$method();
 
-        print_r($data);
-        die();
 //        //白名单
 //        if(YII_ENV == 'prod' && !in_array(Yii::$app->request->getUserIP(), self::IP_WHITE_LIST)) {
 //            throw new BadRequestHttpException('Not allowed access', 403);

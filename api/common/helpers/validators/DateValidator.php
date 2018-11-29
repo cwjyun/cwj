@@ -5,7 +5,7 @@
  * @license 
  */
 
-namespace common\helpers\validators;
+namespace api\common\helpers\validators;
 
 use Yii;
 

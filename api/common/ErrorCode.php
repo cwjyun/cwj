@@ -1,5 +1,5 @@
 <?php
-namespace common;
+namespace api\common;
 
 class ErrorCode {
 	//外部error code

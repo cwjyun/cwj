@@ -1,9 +1,9 @@
 <?php
 
-namespace common\helpers\validators;
+namespace api\common\helpers\validators;
 
 use Yii;
-use common\exception\NeedOverrideException;
+use api\common\exception\NeedOverrideException;
 
 
 class Validator {

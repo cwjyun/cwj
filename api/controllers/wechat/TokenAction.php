@@ -4,7 +4,6 @@ namespace app\controllers\wechat;
 
 use Yii;
 use yii\rest\Action;
-use app\common\CommonClass;
 
 
 class TokenAction extends Action

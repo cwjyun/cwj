@@ -19,7 +19,7 @@ class OpidAction extends Action
     {
         try {
             $op_url = \Yii::$app->wechat->getOauth2AuthorizeUrl($url, 'STATE', 'snsapi_userinfo');
-            CommonClass::ajax_success(['url'=>$op_url]);
+            CommonClass::ajax_success(['code'=>1,'msg'=>$op_url]);
         } catch (\Exception $e) {
                 echo $e;
         }

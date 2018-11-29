@@ -23,7 +23,7 @@ class LoginAction extends Action
             $rules = [
                 [['username', 'password'], 'required'],
             ];
-            $input = Yii::$app->request->bodyParams;
+            $input = CommonClass::get_api_data();
             $check_data = ValidateHelper::validate($input, $rules);
             if ($check_data->code != ErrorCode::SUCCEED) {
                 CommonClass::ajax_error($check_data->message);

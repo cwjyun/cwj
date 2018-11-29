@@ -5,8 +5,6 @@ namespace api\controllers;
 use Yii;
 use app\common\CommonClass;
 use yii\rest\ActiveController;
-use yii\helpers\ArrayHelper;
-use common\helpers\ValidateHelper;
 
 
 
@@ -51,5 +49,6 @@ class CwjController extends ActiveController
 //        }
         return true;
     }
+    
 
 }

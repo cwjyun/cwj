@@ -33,6 +33,18 @@ class CommonClass
         exit(json_encode(array('code'=>0,'data' => $data) + $custom, JSON_UNESCAPED_UNICODE));
     }
 
+
+    public static function get_api_data(){
+        $input = null;
+        if (! empty ( file_get_contents('php://input') )) {
+            $input = json_decode ( file_get_contents('php://input'), true );
+        }
+        if (! is_array ( $input )) {
+            $input = Yii::$app->request->bodyParams;
+        }
+        return $input;
+    }
+
 }
 
 ?>

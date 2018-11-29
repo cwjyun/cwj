@@ -11,7 +11,7 @@ class WechatController extends ActiveController
 {
 
     public $modelClass = '\common\models\Wechat';
-
+    public  $data;
     
     public function init()
     {

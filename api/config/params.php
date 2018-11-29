@@ -7,4 +7,5 @@ return [
     'mailerHost' => 'smtp.163.com',
     'mailerPort' => 25,
     'request_time_out' => 2500,
+    'check_api'=>'3344314',
 ];

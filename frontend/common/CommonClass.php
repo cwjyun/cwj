@@ -35,7 +35,7 @@ class CommonClass
             $responseCode = $obj_curl->responseCode;
             if ($responseCode == 200) {
                 $arr_result  = json_decode($str_result, true);
-                return $arr_result;
+                return $arr_result['data'];
             }
             $sendmailArr = [];
             $sendmailArr['Host'] = \Yii::$app->request->getHostInfo() . \Yii::$app->request->getUrl();
@@ -61,16 +61,13 @@ class CommonClass
     }
 
 
-
-
-
-
-    
-
     public static function getOpid()
     {
         $get_token = Yii::$app->params['wechat_api']['get_opid'];
-        $result = self::getCurlByCorpus($get_token,['url'=>'www.baidu.com'],'GET',0);
+        $rs = self::getCurlByCorpus($get_token, ['url' => 'www.baidu.com'], 'GET', 0);
+        if ($rs['code'] != 1) return false;
+        $url =$rs['msg'];
+
     }
 
 

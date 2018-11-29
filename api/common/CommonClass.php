@@ -1,8 +1,9 @@
 <?php
 
-namespace app\common;
+namespace api\common;
 
 use Yii;
+
 class CommonClass
 {
 
@@ -20,6 +21,11 @@ class CommonClass
         $mail->setHtmlBody('<pre>' . var_export($data, true) . '</pre>');    //发布可以带html标签的文本
         $success = $mail->send();
         return $success;
+    }
+
+    public static function ajax_success($data = [], $custom = [])
+    {
+        exit(json_encode(array('status' => 1, 'data' => $data) + $custom, JSON_UNESCAPED_UNICODE));
     }
 
 }

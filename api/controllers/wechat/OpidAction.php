@@ -4,8 +4,7 @@ namespace app\controllers\wechat;
 
 use Yii;
 use yii\rest\Action;
-use app\common\CommonClass;
-
+use api\common\CommonClass;
 
 class OpidAction extends Action
 {
@@ -19,11 +18,10 @@ class OpidAction extends Action
     public function run($url)
     {
         try {
-            die("xx");
             $op_url = \Yii::$app->wechat->getOauth2AuthorizeUrl($url, 'STATE', 'snsapi_userinfo');
-            die(json_encode(['url'=>$op_url]));
+            CommonClass::ajax_success(['url'=>$op_url]);
         } catch (\Exception $e) {
-            var_dump($e);
+                echo $e;
         }
     }
 

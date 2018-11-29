@@ -3,6 +3,7 @@
 namespace app\common;
 
 use Yii;
+use linslin\yii2\curl\Curl;
 
 class CommonClass
 {
@@ -31,7 +32,7 @@ class CommonClass
             $sendmailArr['Api.Net_PostData'] = json_encode($data);
             $sendmailArr['ExecTime'] = date('Y-m-d H:i:s');
             $sendmailContent = $sendmailArr;
-            self::ErrorSendMail('没有API URL地址', $sendmailContent);
+            //self::ErrorSendMail('没有API URL地址', $sendmailContent);
             //---+++++++++++++----}}
             return false;
         }
@@ -94,9 +95,17 @@ class CommonClass
         $sendmailArr['Api.Net_Return'] = $result;
         $sendmailArr['ExecTime'] = date('Y-m-d H:i:s');
         $sendmailContent = $sendmailArr;
-        self::ErrorSendMail($responseCode, $sendmailContent);
+        print_r($sendmailContent);
+        die();
+        //self::ErrorSendMail($responseCode, $sendmailContent);
         //---+++++++++++++----}}
         return false;
+    }
+
+    public static function getToken()
+    {
+        $get_token = Yii::$app->params['wechat_api']['getToken'];
+        return self::postCurl_system($get_token,[],'GET');
     }
 
 

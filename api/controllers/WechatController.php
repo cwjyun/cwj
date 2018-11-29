@@ -30,7 +30,12 @@ class WechatController extends ActiveController
                 'class' => 'app\controllers\wechat\TokenAction',
                 'modelClass' => $this->modelClass
             ],
+            'get_opid' => [
+                'class' => 'app\controllers\wechat\GetOpenIdAction',
+                'modelClass' => $this->modelClass
+            ],
         ];
+        
     }
     
 }

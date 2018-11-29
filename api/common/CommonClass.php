@@ -29,10 +29,8 @@ class CommonClass
     }
 
 
-    //验证签名是否正确
-    public static function check_api($data)
-    {
-
+    public static function ajax_error($data = [], $custom = []){
+        exit(json_encode(array('code'=>0,'data' => $data) + $custom, JSON_UNESCAPED_UNICODE));
     }
 
 }

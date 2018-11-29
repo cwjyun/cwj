@@ -5,6 +5,7 @@ namespace app\controllers\cwj;
 use Yii;
 use yii\rest\Action;
 use api\common\CommonClass;
+use api\common\ErrorCode;
 use api\common\helpers\ValidateHelper;
 
 class LoginAction extends Action
@@ -23,10 +24,10 @@ class LoginAction extends Action
                 [['username', 'password'], 'required'],
             ];
             $input = Yii::$app->request->bodyParams;
-
-            $result = ValidateHelper::validate($input, $rules);
-            print_r($result);
-            die(2222);
+            $check_data = ValidateHelper::validate($input, $rules);
+            if ($check_data->code != ErrorCode::SUCCEED) {
+                CommonClass::ajax_error($check_data->message);
+            }
 
         } catch (\Exception $e) {
             echo $e;

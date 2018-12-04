@@ -7,8 +7,9 @@ use yii\rest\Action;
 use api\common\CommonClass;
 use api\common\ErrorCode;
 use api\common\helpers\ValidateHelper;
+use api\models\user\User_cwj;
 
-class LoginAction extends Action
+class RegAction extends Action
 {
     /**
      * @param $ppid
@@ -21,17 +22,30 @@ class LoginAction extends Action
     {
         try {
             $rules = [
-                [['allowance', 'allowance_updated_at'], 'required'],
-                [['username', 'password'], 'string', 'max' => 50],
-                [['email', 'auth_key'], 'string', 'max' => 60],
-                [['username', 'password'], 'unique'],
+                [['username', 'password', 'email'], 'string', 'length' => [8, 20]],
             ];
             $input = CommonClass::get_api_data();
             $check_data = ValidateHelper::validate($input, $rules);
             if ($check_data->code != ErrorCode::SUCCEED) {
                 CommonClass::ajax_error($check_data->message);
             }
-
+            $user = new User_cwj();
+            $check_user_name = $user::find()->where(['username' => $input['username']])->one();
+            if($check_user_name){
+                CommonClass::ajax_error(['msg'=>'账号存在']);
+            }
+            
+            $input['update_time'] = date('Y-m-d H:i:s');
+            $input['create_time'] = date('Y-m-d H:i:s');
+            $input['ip'] = Yii::$app->request->getUserIP();
+            $input['password'] = md5($input['password']);
+            $user->setAttributes($input);
+            $user->save();
+            if ($user->errors) {
+                CommonClass::ErrorSendMail('注册时数据库保存', ['error' => $user->errors, 'content' => $input]);
+                CommonClass::ajax_error($user->errors);
+            }
+            CommonClass::ajax_success(['msg'=>'创建账号成功']);
         } catch (\Exception $e) {
             echo $e;
         }

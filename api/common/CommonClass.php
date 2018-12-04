@@ -33,7 +33,10 @@ class CommonClass
         exit(json_encode(array('code'=>0,'data' => $data) + $custom, JSON_UNESCAPED_UNICODE));
     }
 
-
+    /**
+     * 获取接口过得来post或者get数据
+     * @return array|mixed|null
+     */
     public static function get_api_data(){
         $input = null;
         if (! empty ( file_get_contents('php://input') )) {
@@ -43,6 +46,14 @@ class CommonClass
             $input = Yii::$app->request->bodyParams;
         }
         return $input;
+    }
+
+    /**
+     * 请求的接口保存日志
+     */
+    public static function save_log_api_date($url = '', $data)
+    {
+
     }
 
 }

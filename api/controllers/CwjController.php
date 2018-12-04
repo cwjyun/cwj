@@ -29,13 +29,14 @@ class CwjController extends ActiveController
 
         $actions = parent::actions();
         unset($actions['delete'], $actions['create']);
-        return [
+        $action = [
             //登录接口
             'login' => [
                 'class' => 'app\controllers\cwj\LoginAction',
                 'modelClass' => $this->modelClass
             ],
         ];
+        return $action;
 
     }
 

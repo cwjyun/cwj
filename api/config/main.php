@@ -23,7 +23,7 @@ return [
         ],
         'session' => [
             'class' => 'yii\redis\Session',
-            'redis' =>'redis',
+            'redis' => 'redis',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -34,19 +34,27 @@ return [
                 ],
             ],
         ],
+        //日志库
+        'log_db' => $params['log'],
+        //主库
+        'cwj_db' => $params['cwj'],
+        //微信库
+        'wechat_db' => $params['wechat'],
+        //redis 缓存库
+        'redis' => $params['redis'],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             //'viewPath' => '@common/mail',//发送模板
-            'useFileTransport' =>false,//这句一定有，false发送邮件，true只是生成邮件在runtime文件夹下，不发邮件
+            'useFileTransport' => false,//这句一定有，false发送邮件，true只是生成邮件在runtime文件夹下，不发邮件
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => $params['mailerHost'],
                 'username' => $params['mailerUserName'],
                 'password' => $params['mailerPassword'],
-                'port' =>$params['mailerPort'],
+                'port' => $params['mailerPort'],
                 'encryption' => 'tls',//ssl
             ],
         ],
@@ -58,7 +66,7 @@ return [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => ['wechat','cwj']
+                    'controller' => ['wechat', 'cwj']
                 ],
             ],
         ],

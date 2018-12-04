@@ -39,7 +39,7 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'db' => $params['cwj'],
+        'cwj_db' => $params['cwj'],
         'log_db' => $params['log'],
         'wechat_db' => $params['wechat'],
         'urlManager' => [

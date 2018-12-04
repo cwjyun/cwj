@@ -35,6 +35,10 @@ class CwjController extends ActiveController
                 'class' => 'app\controllers\cwj\LoginAction',
                 'modelClass' => $this->modelClass
             ],
+            'reg'=>[
+                'class' => 'app\controllers\cwj\RegAction',
+                'modelClass' => $this->modelClass
+            ]
         ];
         return $action;
 

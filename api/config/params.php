@@ -10,6 +10,7 @@ return [
     'check_api' => '3344314',
     'public_rsa_key' => __DIR__ . '/../../common/tool/Rsakey/rsa_public_key.pem',
     'private_rsa_key' => __DIR__ . '/../../common/tool/Rsakey/rsa_private_key.pem',
+    'RasKey'=>'cwjyun',
     'log' => [
         'class' => 'yii\db\Connection',
         'dsn' => 'mysql:host=47.93.246.251;dbname=log',

@@ -3,6 +3,7 @@
 namespace api\common;
 
 use Yii;
+use api\models\log\Log;
 
 class CommonClass
 {
@@ -51,9 +52,18 @@ class CommonClass
     /**
      * 请求的接口保存日志
      */
-    public static function save_log_api_date($url = '', $data)
+    public static function save_log_api_date($data, $error = '', $is_send_email = 0)
     {
-
+        $data['url'] = Yii::$app->request->getHostInfo() . Yii::$app->request->url;
+        $data['request'] = $error;
+        $data['http_status'] = '500';
+        $data['response'] = json_encode($data, true);
+        $result = Log::save_log($data,1);
+        if($is_send_email){
+             self::ErrorSendMail('错误日志记录',$data);
+             return true;
+        }
+        return true;
     }
 
 }

@@ -23,6 +23,7 @@ class RasClass extends Component
     private $priKey = null;
     public $public_key_file;
     public $private_key_file;
+    public $rasKey;
 
     /**
      * 构造函数
@@ -41,11 +42,17 @@ class RasClass extends Component
         }
     }
 
+    /**
+     * 获取Yii 配置文件写进去的参数
+     * @param $config
+     */
     public function setRasClass($config)
     {
         $this->public_key_file = $config['public_key_file'];
         $this->private_key_file = $config['private_key_file'];
+        $this->rasKey = $config['RasKey'];
     }
+
 
 // 私有方法
 
@@ -233,5 +240,23 @@ class RasClass extends Component
         }
         return $ret;
     }
-    
+
+    /**
+     * 验签规则
+     * @param $data
+     */
+    public function check_single_signature($data)
+    {
+        if (!$data['sign']) {
+            return false;
+        }
+        $key = json_decode($this->decrypt($data['sign']), true);
+        if ($this->rasKey != $key['sign']) {
+            return false;
+
+        }
+        return true;
+
+    }
+
 }

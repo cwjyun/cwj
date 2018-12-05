@@ -7,7 +7,7 @@ use yii\rest\ActiveController;
 
 /**
  */
-class WechatController extends ActiveController
+class WechatController extends BaseActiveController
 {
 
     public $modelClass = '\common\models\Wechat';

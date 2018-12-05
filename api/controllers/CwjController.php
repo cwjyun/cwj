@@ -10,7 +10,7 @@ use yii\rest\ActiveController;
 
 /**
  */
-class CwjController extends ActiveController
+class CwjController extends BaseActiveController
 {
 
     public $modelClass = '\common\models\cwj';

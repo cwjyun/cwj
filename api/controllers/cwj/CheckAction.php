@@ -4,6 +4,9 @@ namespace app\controllers\cwj;
 
 use Yii;
 use yii\rest\Action;
+use api\common\CommonClass;
+use api\common\ErrorCode;
+use api\common\helpers\ValidateHelper;
 
 
 class CheckAction extends Action
@@ -18,7 +21,16 @@ class CheckAction extends Action
     public function run()
     {
         try {
-            $result = Yii::$app->ras->sign("xxxxx");
+            $rules = [
+                [['username', 'password','email'], 'required'],
+                [['sign'], 'verification'],
+            ];
+
+            $input = CommonClass::get_api_data();
+            $check_data = ValidateHelper::validate($input, $rules);
+            if ($check_data->code != ErrorCode::SUCCEED) {
+                CommonClass::ajax_error($check_data->message);
+            }
         } catch (\Exception $e) {
             echo $e;
         }

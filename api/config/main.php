@@ -16,6 +16,13 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
+        'ras' => [
+            'class' => 'api\common\RasClass',
+            'RasClass'=>[
+                'public_key_file' => $params['public_rsa_key'],
+                'private_key_file' => $params['private_rsa_key'],
+            ]
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

@@ -38,6 +38,10 @@ class CwjController extends ActiveController
             'reg'=>[
                 'class' => 'app\controllers\cwj\RegAction',
                 'modelClass' => $this->modelClass
+            ],
+            'check'=>[
+                'class' => 'app\controllers\cwj\CheckAction',
+                'modelClass' => $this->modelClass
             ]
         ];
         return $action;

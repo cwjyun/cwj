@@ -16,6 +16,8 @@ class MyController extends BaseController
     public function actionIndex()
     {
         Yii::$app->session['name'] = 'xxx';
+        phpinfo();
+        die();
     }
 
 

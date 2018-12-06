@@ -6,7 +6,7 @@ $params = array_merge(
     require __DIR__ . '/params-local.php'
 );
 
-return [
+$config = [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'api\controllers',
@@ -39,6 +39,17 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                ],
+                [
+                    'class' => 'yii\log\EmailTarget',
+                    'mailer' => 'mailer',
+                    'levels' => ['error'],
+                    'categories' => ['yii\db\*', 'api\models\*', 'app\controllers\*'],
+                    'message' => [
+                        'from' => [$params['mailerUserName']],
+                        'to' => $params['adminEmail'],
+                        'subject' => 'Database errors at teacher.zhan.test',
+                    ],
                 ],
             ],
         ],
@@ -88,3 +99,21 @@ return [
     ],
     'params' => $params,
 ];
+
+if (YII_ENV_DEV) {
+    // configuration adjustments for 'dev' environment
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+        'allowedIPs' => ['172.*.*.*','::1','127.0.0.1']
+    ];
+
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+        'allowedIPs' => ['172.*.*.*','127.0.0.1']
+    ];
+}
+
+
+return $config;

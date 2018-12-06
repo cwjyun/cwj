@@ -58,7 +58,8 @@ class CommonClass
         $data['request'] = $error;
         $data['http_status'] = '500';
         $data['response'] = json_encode($data, true);
-        $result = Log::save_log($data,1);
+        $data['create_time'] = date("Y-m-d H:i:s");
+        Log::save_log($data,1);
         if($is_send_email){
              self::ErrorSendMail('错误日志记录',$data);
              return true;

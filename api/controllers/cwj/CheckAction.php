@@ -25,7 +25,6 @@ class CheckAction extends Action
                 [['username', 'password','email'], 'required'],
                 [['sign'], 'verification'],
             ];
-
             $input = CommonClass::get_api_data();
             $check_data = ValidateHelper::validate($input, $rules);
             if ($check_data->code != ErrorCode::SUCCEED) {
@@ -35,6 +34,6 @@ class CheckAction extends Action
             echo $e;
         }
     }
-
+                                                                                                                                        
 
 }

@@ -52,8 +52,8 @@ $config = [
     ],
     'params' => $params,
 ];
-if (!YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
+if (YII_ENV_DEV) {
+    // configuration adjustments for 'dev' environmen   t
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',

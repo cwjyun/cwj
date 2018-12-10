@@ -20,8 +20,8 @@
     <?= Html::cssFile('@web/assets/css/style.css')?>
     <?= Html::cssFile('@web/assets/css/headers/header1.css')?>
     <?= Html::cssFile('@web/assets/plugins/bootstrap/css/bootstrap-responsive.min.css')?>
-   <?= Html::cssFile('@web/assets/css/style_responsive.css')?>
-    <link rel="shortcut icon" href="favicon.ico" />
+    <?= Html::cssFile('@web/assets/css/style_responsive.css')?>
+    <?= Html::cssFile('@web/favicon.ico',['rel'=>'shortcut icon'])?>
     <!-- CSS Implementing Plugins -->
     <?= Html::cssFile('@web/assets/plugins/font-awesome/css/font-awesome.css')?>
     <?= Html::cssFile('@web/assets/plugins/flexslider/flexslider.css')?>
@@ -32,25 +32,25 @@
 
 <body>
 <!--=== Style Switcher ===-->
-<i class="style-switcher-btn icon-cogs"></i>
-<div class="style-switcher">
-    <div class="theme-close"><i class="icon-remove"></i></div>
-    <div class="theme-heading">Theme Colors</div>
-    <ul class="unstyled">
-        <li class="theme-default theme-active" data-style="default" data-header="light"></li>
-        <li class="theme-blue" data-style="blue" data-header="light"></li>
-        <li class="theme-orange" data-style="orange" data-header="light"></li>
-        <li class="theme-red" data-style="red" data-header="light"></li>
-        <li class="theme-light" data-style="light" data-header="light"></li>
-    </ul>
-</div><!--/style-switcher-->
-<!--=== End Style Switcher ===-->
+<!--<i class="style-switcher-btn icon-cogs"></i>-->
+<!--<div class="style-switcher">-->
+<!--    <div class="theme-close"><i class="icon-remove"></i></div>-->
+<!--    <div class="theme-heading">Theme Colors</div>-->
+<!--    <ul class="unstyled">-->
+<!--        <li class="theme-default theme-active" data-style="default" data-header="light"></li>-->
+<!--        <li class="theme-blue" data-style="blue" data-header="light"></li>-->
+<!--        <li class="theme-orange" data-style="orange" data-header="light"></li>-->
+<!--        <li class="theme-red" data-style="red" data-header="light"></li>-->
+<!--        <li class="theme-light" data-style="light" data-header="light"></li>-->
+<!--    </ul>-->
+<!--</div><!--/style-switcher-->
+<!--<!--=== End Style Switcher ===-->
 
 <!--=== Top ===-->
 <div class="top">
     <div class="container">
         <ul class="loginbar pull-right">
-            <li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
+            <li><i class="icon-globe"></i><a>语言 <i class="icon-sort-up"></i></a>
                 <ul class="nav-list">
                     <li class="active"><a href="#">English</a> <i class="icon-ok"></i></li>
                     <li><a href="#">Spanish</a></li>
@@ -59,9 +59,9 @@
                 </ul>
             </li>
             <li class="devider">&nbsp;</li>
-            <li><a href="page_faq.html" class="login-btn">Help</a></li>
+            <li><a href="page_faq.html" class="login-btn">帮助</a></li>
             <li class="devider">&nbsp;</li>
-            <li><a href="page_login.html" class="login-btn">Login</a></li>
+            <li><a href="page_login.html" class="login-btn">登录</a></li>
         </ul>
     </div>
 </div><!--/top-->

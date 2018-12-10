@@ -2,8 +2,8 @@
 
 namespace frontend\controllers;
 
-use app\common\CommonClass;
 use Yii;
+use app\common\CommonClass;
 use yii\web\Controller;
 
 
@@ -14,7 +14,7 @@ use yii\web\Controller;
  */
 class PublicController extends Controller
 {
-    public $layout = false;
+
 
     public function actionIndex()
     {

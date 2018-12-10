@@ -20,16 +20,20 @@ class CheckAction extends Action
      */
     public function run()
     {
+        $input = CommonClass::get_api_data();
+        if (empty($input)) {
+            return CommonClass::ajax_error(['无请求参数']);
+        }
         try {
             $rules = [
                 [['username', 'password','email'], 'required'],
                 [['sign'], 'verification'],
             ];
-            $input = CommonClass::get_api_data();
             $check_data = ValidateHelper::validate($input, $rules);
             if ($check_data->code != ErrorCode::SUCCEED) {
                 CommonClass::ajax_error($check_data->message);
             }
+           return CommonClass::ajax_success(['调用成功']);
         } catch (\Exception $e) {
             echo $e;
         }

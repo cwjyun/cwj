@@ -10,6 +10,7 @@ $config = [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'api\controllers',
+    'defaultRoute' => 'my/index',//默认路由，控制器+方法
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [

@@ -14,6 +14,4 @@ $config = yii\helpers\ArrayHelper::merge(
     require __DIR__ . '/../config/main-local.php'
 );
 
-die("XXX");
-
 (new yii\web\Application($config))->run();

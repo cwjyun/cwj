@@ -14,8 +14,7 @@ use yii\web\Controller;
  */
 class PublicController extends Controller
 {
-
-
+    
     public function actionIndex()
     {
         $controller = Yii::$app->controller->id;

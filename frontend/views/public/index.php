@@ -1,13 +1,8 @@
 <?php
     use yii\helpers\Html;
 ?>
-<!DOCTYPE html>
-<!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-    <title><?= $basics['title'];?></title>
+    <title><?= $this->context->basics['title'];?></title>
 
     <!-- Meta -->
     <meta charset="utf-8" />

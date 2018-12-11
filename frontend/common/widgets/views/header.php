@@ -1,6 +1,11 @@
 <?php
 use yii\helpers\Html;
 ?>
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <!--=== Top ===-->
 <div class="top">
     <div class="container">
@@ -16,7 +21,7 @@ use yii\helpers\Html;
             <li class="devider">&nbsp;</li>
             <li><a href="page_faq.html" class="login-btn">帮助</a></li>
             <li class="devider">&nbsp;</li>
-            <li><a href="page_login.html" class="login-btn">登录</a></li>
+            <li><a href="<?= Yii::$app->urlManager->createUrl(['public/login'])?>" class="login-btn">登录</a></li>
         </ul>
     </div>
 </div><!--/top-->

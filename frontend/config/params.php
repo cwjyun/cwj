@@ -15,11 +15,17 @@ return [
     'basics_info' => [
         //公用功能控制器
         'public' => [
-            'index'=>[
-                'title'=>'小崔首页',
+            'public' => [
+                'title' => '小崔主页',
+                'name' => '主页'
+            ],
+            'index' => [
+                'title' => '小崔首页',
+                'name' => '首页'
             ],
             'login' => [
-                  'title'=>'小崔登录页',
+                'title' => '小崔登录页',
+                'name' => '登录'
             ]
         ]
     ]

@@ -272,14 +272,11 @@ class CommonClass
      */
     public static function get_basics_info()
     {
-         $basics = Yii::$app->params['basics_info'];
-         $controller = Yii::$app->controller->id;
-         $action = Yii::$app->controller->action->id;
-         return $basics[$controller][$action];
+        $basics = Yii::$app->params['basics_info'];
+        $controller = Yii::$app->controller->id;
+        $action = Yii::$app->controller->action->id;
+        return $basics[$controller][$action];
     }
-
-    
-
 
 }
 

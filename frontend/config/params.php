@@ -32,5 +32,6 @@ return [
                 'name' => '登录'
             ]
         ]
-    ]
+    ],
+    'login'=> WECHAT_API_URL.'/cwj/login'
 ];

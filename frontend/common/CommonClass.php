@@ -302,8 +302,26 @@ class CommonClass
             $input = Yii::$app->request->bodyParams;
         }
         return $input;
+    }
+
+    /**
+     * 登录接口
+     * @param $data
+     */
+    public static function login($data)
+    {
+        $json = json_encode($data);
+        $data['aign'] = self::set_aign($json);
+        $url = Yii::$app->params['login'];
+        $result = self::postCurl_system($url, $data);
+        print_r($result);
+        die("xxx");
+    }
 
 
+    public static function set_aign($data)
+    {
+        return Yii::$app->Ras->encrypt($data);
     }
 }
 

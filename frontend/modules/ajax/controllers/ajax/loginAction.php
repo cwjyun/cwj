@@ -18,11 +18,10 @@ class loginAction extends Action
         try {
             $input = CommonClass::get_api_data();
             $rules = [
-                [['username', 'password', 'email'], 'required'],
+                [['username', 'password'], 'required'],
             ];
             $check_data = ValidateHelper::validate($input, $rules);
-
-            print_r($input);
+            $result = CommonClass::login($input);
             die("调用成功");
         } catch (\Exception $e) {
             echo $e;

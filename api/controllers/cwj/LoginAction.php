@@ -7,6 +7,7 @@ use yii\rest\Action;
 use api\common\CommonClass;
 use api\common\ErrorCode;
 use api\common\helpers\ValidateHelper;
+use api\models\user\User_cwj;
 
 class LoginAction extends Action
 {
@@ -28,9 +29,19 @@ class LoginAction extends Action
             if ($check_data->code != ErrorCode::SUCCEED) {
                 CommonClass::ajax_error($check_data->message);
             }
+            $user_info = User_cwj::find()->where(
+                [
+                    'username' => $input['username'],
+                    'password' => md5($input['password'])
+                ]
+            )->asArray()->one();
+
+            if (!$user_info) {
+                CommonClass::ajax_error('账号或者密码错误');
+            }
 
         } catch (\Exception $e) {
-            echo $e;
+            CommonClass::ErrorSendMail('接口出错', $e->getMessage());
         }
     }
 

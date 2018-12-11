@@ -148,8 +148,8 @@ use yii\helpers\Html;
             type: "POST",
             url: "<?=Yii::$app->urlManager->createUrl(['ajax/ajax/login'])?>",
             data: {
-                user_name: user_name,
-                pass_word: pass_word
+                username: user_name,
+                password: pass_word
             },
             success: function (data) {
                 $('#ajax_tagselector_group').html(data);

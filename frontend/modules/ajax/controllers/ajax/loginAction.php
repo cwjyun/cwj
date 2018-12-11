@@ -19,9 +19,9 @@ class loginAction extends Action
             $input = CommonClass::get_api_data();
             $rules = [
                 [['username', 'password', 'email'], 'required'],
-                [['sign'], 'verification'],
             ];
             $check_data = ValidateHelper::validate($input, $rules);
+
             print_r($input);
             die("调用成功");
         } catch (\Exception $e) {

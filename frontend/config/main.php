@@ -22,6 +22,15 @@ $config = [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+        //验签
+        'Ras' => [
+            'class' => 'app\common\RasClass',
+            'RasClass'=>[
+                'public_key_file' => $params['public_rsa_key'],
+                'private_key_file' => $params['private_rsa_key'],
+                'RasKey' =>    $params['RasKey'],
+            ]
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

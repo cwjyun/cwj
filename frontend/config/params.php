@@ -8,6 +8,10 @@ return [
     'mailerHost' => 'smtp.163.com',
     'mailerPort' => 25,
     'request_time_out' => 2500,
+    'check_api' => '3344314',
+    'public_rsa_key' => __DIR__ . '/../../common/tool/Rsakey/rsa_public_key.pem',
+    'private_rsa_key' => __DIR__ . '/../../common/tool/Rsakey/rsa_private_key.pem',
+    'RasKey'=>'cwjyun',
     'wechat_api' => [
         'getToken' => WECHAT_API_URL . '/wechat/token',
         'get_opid' => WECHAT_API_URL . '/wechat/get_opid',

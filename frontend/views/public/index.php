@@ -16,18 +16,18 @@
     <meta name="author" content="" />
 
     <!-- CSS Global Compulsory-->
-    <?= Html::cssFile('@path_root/assets/plugins/bootstrap/css/bootstrap.min.css')?>
-    <?= Html::cssFile('@path_root/assets/css/style.css')?>
-    <?= Html::cssFile('@path_root/assets/css/headers/header1.css')?>
-    <?= Html::cssFile('@path_root/assets/plugins/bootstrap/css/bootstrap-responsive.min.css')?>
-    <?= Html::cssFile('@path_root/assets/css/style_responsive.css')?>
+    <?= Html::cssFile('@path_root/plugins/bootstrap/css/bootstrap.min.css')?>
+    <?= Html::cssFile('@path_root/css/style.css')?>
+    <?= Html::cssFile('@path_root/css/headers/header1.css')?>
+    <?= Html::cssFile('@path_root/plugins/bootstrap/css/bootstrap-responsive.min.css')?>
+    <?= Html::cssFile('@path_root/css/style_responsive.css')?>
     <?= Html::cssFile('@path_root/favicon.ico',['rel'=>'shortcut icon'])?>
     <!-- CSS Implementing Plugins -->
-    <?= Html::cssFile('@path_root/assets/plugins/font-awesome/css/font-awesome.css')?>
-    <?= Html::cssFile('@path_root/assets/plugins/flexslider/flexslider.css')?>
-   <?= Html::cssFile('@path_root/assets/plugins/parallax-slider/css/parallax-slider.css')?>
+    <?= Html::cssFile('@path_root/plugins/font-awesome/css/font-awesome.css')?>
+    <?= Html::cssFile('@path_root/plugins/flexslider/flexslider.css')?>
+   <?= Html::cssFile('@path_root/plugins/parallax-slider/css/parallax-slider.css')?>
     <!-- CSS Theme -->
-    <?= Html::cssFile('@path_root/assets/css/themes/default.css')?>
+    <?= Html::cssFile('@path_root/css/themes/default.css')?>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
@@ -52,7 +52,7 @@
         <div class="da-slide">
             <h2><i>CLEAN &amp; FRESH</i> <br /> <i>FULLY RESPONSIVE</i> <br /> <i>DESIGN</i></h2>
             <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
-            <div class="da-img"><?= Html::img('@path_root/assets/plugins/parallax-slider/img/1.png')?></div>
+            <div class="da-img"><?= Html::img('@path_root/plugins/parallax-slider/img/1.png')?></div>
         </div>
         <div class="da-slide">
             <h2><i>RESPONSIVE VIDEO</i> <br /> <i>SUPPORT AND</i> <br /> <i>MANY MORE</i></h2>
@@ -66,7 +66,7 @@
         <div class="da-slide">
             <h2><i>USING BEST WEB</i> <br /> <i>SOLUTIONS WITH</i> <br /> <i>HTML5/CSS3</i></h2>
             <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
-            <div class="da-img"><?= Html::img('@path_root/assets/plugins/parallax-slider/img/html5andcss3.png')?></div>
+            <div class="da-img"><?= Html::img('@path_root/plugins/parallax-slider/img/html5andcss3.png')?></div>
         </div>
         <nav class="da-arrows">
             <span class="da-arrows-prev"></span>
@@ -128,7 +128,7 @@
         <li class="span3">
             <div class="thumbnail-style thumbnail-kenburn">
                 <div class="thumbnail-img">
-                    <div class="overflow-hidden"><?= Html::img('@path_root/assets/img/carousel/2.jpg')?></div>
+                    <div class="overflow-hidden"><?= Html::img('@path_root/img/carousel/2.jpg')?></div>
                     <a class="btn-more hover-effect" href="#">read more +</a>
                 </div>
                 <h3><a class="hover-effect" href="#">Our Work</a></h3>
@@ -138,7 +138,7 @@
         <li class="span3">
             <div class="thumbnail-style thumbnail-kenburn">
                 <div class="thumbnail-img">
-                    <div class="overflow-hidden"><?= Html::img('@path_root/assets/img/carousel/3.jpg')?></div>
+                    <div class="overflow-hidden"><?= Html::img('@path_root/img/carousel/3.jpg')?></div>
                     <a class="btn-more hover-effect" href="#">read more +</a>
                 </div>
                 <h3><a class="hover-effect" href="#">One More Work</a></h3>
@@ -148,7 +148,7 @@
         <li class="span3">
             <div class="thumbnail-style thumbnail-kenburn">
                 <div class="thumbnail-img">
-                    <div class="overflow-hidden"><?= Html::img('@path_root/assets/img/carousel/9.jpg')?></div>
+                    <div class="overflow-hidden"><?= Html::img('@path_root/img/carousel/9.jpg')?></div>
                     <a class="btn-more hover-effect" href="#">read more +</a>
                 </div>
                 <h3><a class="hover-effect" href="#">Another Work</a></h3>
@@ -158,7 +158,7 @@
         <li class="span3">
             <div class="thumbnail-style thumbnail-kenburn">
                 <div class="thumbnail-img">
-                    <div class="overflow-hidden"><?= Html::img('@path_root/assets/img/carousel/10.jpg')?></div>
+                    <div class="overflow-hidden"><?= Html::img('@path_root/img/carousel/10.jpg')?></div>
                     <a class="btn-more hover-effect" href="#">read more +</a>
                 </div>
                 <h3><a class="hover-effect" href="#">Huge Work</a></h3>
@@ -173,7 +173,7 @@
         <!-- Who We Are -->
         <div class="span8">
             <div class="headline"><h3>Welcome To UNIFY Template</h3></div>
-            <p><?= Html::img('@path_root/assets/img/carousel/6.jpg',['class'=>'pull-left lft-img-margin img-width-200'])?>Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone.</p>
+            <p><?= Html::img('@path_root/img/carousel/6.jpg',['class'=>'pull-left lft-img-margin img-width-200'])?>Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone.</p>
             <ul class="unstyled">
                 <li><i class="icon-ok color-green"></i> Donec id elit non mi porta gravida</li>
                 <li><i class="icon-ok color-green"></i> Corporate and Creative</li>
@@ -193,19 +193,19 @@
             <div id="myCarousel" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="item active">
-                        <?= Html::img('@path_root/assets/img/carousel/5.jpg')?>
+                        <?= Html::img('@path_root/img/carousel/5.jpg')?>
                         <div class="carousel-caption">
                             <p>Cras justo odio, dapibus ac facilisis in, egestas.</p>
                         </div>
                     </div>
                     <div class="item">
-                        <?= Html::img('@path_root/assets/img/carousel/4.jpg')?>
+                        <?= Html::img('@path_root/img/carousel/4.jpg')?>
                         <div class="carousel-caption">
                             <p>Cras justo odio, dapibus ac facilisis in, egestas.</p>
                         </div>
                     </div>
                     <div class="item">
-                        <?= Html::img('@path_root/assets/img/carousel/3.jpg')?>
+                        <?= Html::img('@path_root/img/carousel/3.jpg')?>
                         <div class="carousel-caption">
                             <p>Cras justo odio, dapibus ac facilisis in, egestas.</p>
                         </div>
@@ -227,104 +227,104 @@
         <ul class="slides">
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/hp_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/hp.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/hp_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/hp.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/igneus_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/igneus.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/igneus_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/igneus.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/vadafone_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/vadafone.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/vadafone_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/vadafone.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/walmart_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/walmart.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/walmart_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/walmart.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/shell_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/shell.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/shell_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/shell.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/natural_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/natural.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/natural_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/natural.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/aztec_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/aztec.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/aztec_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/aztec.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/gamescast_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/gamescast.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/gamescast_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/gamescast.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    "<?= Html::img('@path_root/assets/img/clients/cisco_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/cisco.png',['class'=>'color-img'])?>
+                    "<?= Html::img('@path_root/img/clients/cisco_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/cisco.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/everyday_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/everyday.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/everyday_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/everyday.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/cocacola_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/cocacola.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/cocacola_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/cocacola.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/spinworkx_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/spinworkx.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/spinworkx_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/spinworkx.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/shell_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/shell.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/shell_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/shell.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/natural_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/natural.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/natural_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/natural.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/gamescast_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/gamescast.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/gamescast_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/gamescast.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/everyday_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/everyday.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/everyday_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/everyday.png',['class'=>'color-img'])?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?= Html::img('@path_root/assets/img/clients/spinworkx_grey.png')?>
-                    <?= Html::img('@path_root/assets/img/clients/spinworkx.png',['class'=>'color-img'])?>
+                    <?= Html::img('@path_root/img/clients/spinworkx_grey.png')?>
+                    <?= Html::img('@path_root/img/clients/spinworkx.png',['class'=>'color-img'])?>
                 </a>
             </li>
         </ul>
@@ -357,19 +357,19 @@
                 <div class="posts">
                     <div class="headline"><h3>Recent Blog Entries</h3></div>
                     <dl class="dl-horizontal">
-                        <dt><a href="#"><?= Html::img('@path_root/assets/img/sliders/elastislide/6.jpg')?></a></dt>
+                        <dt><a href="#"><?= Html::img('@path_root/img/sliders/elastislide/6.jpg')?></a></dt>
                         <dd>
                             <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
                         </dd>
                     </dl>
                     <dl class="dl-horizontal">
-                        <dt><a href="#"><?= Html::img('@path_root/assets/img/sliders/elastislide/10.jpg')?></a></dt>
+                        <dt><a href="#"><?= Html::img('@path_root/img/sliders/elastislide/10.jpg')?></a></dt>
                         <dd>
                             <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
                         </dd>
                     </dl>
                     <dl class="dl-horizontal">
-                        <dt><a href="#"><?= Html::img('@path_root/assets/img/sliders/elastislide/11.jpg')?></a></dt>
+                        <dt><a href="#"><?= Html::img('@path_root/img/sliders/elastislide/11.jpg')?></a></dt>
                         <dd>
                             <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
                         </dd>
@@ -407,17 +407,17 @@
 
 
 <!-- JS Global Compulsory -->
-<?= Html::jsFile('@path_root/assets/js/jquery-1.8.2.min.js')?>
-<?= Html::jsFile('@path_root/assets/js/modernizr.custom.js')?>
-<?= Html::jsFile('@path_root/assets/plugins/bootstrap/js/bootstrap.min.js')?>
+<?= Html::jsFile('@path_root/js/jquery-1.8.2.min.js')?>
+<?= Html::jsFile('@path_root/js/modernizr.custom.js')?>
+<?= Html::jsFile('@path_root/plugins/bootstrap/js/bootstrap.min.js')?>
 <!-- JS Implementing Plugins -->
-<?= Html::jsFile('@path_root/assets/plugins/flexslider/jquery.flexslider-min.js')?>
-<?= Html::jsFile('@path_root/assets/plugins/parallax-slider/js/modernizr.js')?>
-<?= Html::jsFile('@path_root/assets/plugins/parallax-slider/js/jquery.cslider.js')?>
-<?= Html::jsFile('@path_root/assets/plugins/back-to-top.js')?>
+<?= Html::jsFile('@path_root/plugins/flexslider/jquery.flexslider-min.js')?>
+<?= Html::jsFile('@path_root/plugins/parallax-slider/js/modernizr.js')?>
+<?= Html::jsFile('@path_root/plugins/parallax-slider/js/jquery.cslider.js')?>
+<?= Html::jsFile('@path_root/plugins/back-to-top.js')?>
 <!-- JS Page Level -->
-<?= Html::jsFile('@path_root/assets/js/app.js')?>
-<?= Html::jsFile('@path_root/assets/js/pages/index.js')?>
+<?= Html::jsFile('@path_root/js/app.js')?>
+<?= Html::jsFile('@path_root/js/pages/index.js')?>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
@@ -425,7 +425,7 @@
         Index.initParallaxSlider();
     });
 </script>
-<?= Html::jsFile('@path_root/assets/js/respond.js')?>
+<?= Html::jsFile('@path_root/js/respond.js')?>
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>	

@@ -9,7 +9,6 @@ class CommonClass
 {
 
 
-
     /**
      * @param $title 邮件标题
      * @param $data  邮件内容
@@ -33,7 +32,7 @@ class CommonClass
      * @return bool|array|string
      * $callback_json=1代表返回所有接口返回json
      */
-    public static function getCurlByCorpus($str_url, $arr_post_data='',$callback_json=0)
+    public static function getCurlByCorpus($str_url, $arr_post_data = '', $callback_json = 0)
     {
         $obj_curl = new Curl();
 
@@ -48,11 +47,11 @@ class CommonClass
             $obj_curl->setOption(CURLOPT_HTTPHEADER, [
                 'Content-Type: application/x-www-form-urlencoded'
             ]);;
-            $str_result  = $obj_curl->get($str_url . '?' . http_build_query($arr_post_data));
-            
+            $str_result = $obj_curl->get($str_url . '?' . http_build_query($arr_post_data));
+
             $responseCode = $obj_curl->responseCode;
             if ($responseCode == 200) {
-                $arr_result  = json_decode($str_result, true);
+                $arr_result = json_decode($str_result, true);
                 return $arr_result['data'];
             }
             $sendmailArr = [];
@@ -66,7 +65,7 @@ class CommonClass
             self::ErrorSendMail($responseCode, $sendmailArr);
             return false;
 
-        } catch ( \Exception $e ) {
+        } catch (\Exception $e) {
             $sendmailArr = [];
             $sendmailArr['Host'] = \Yii::$app->request->getHostInfo() . \Yii::$app->request->getUrl();
             $sendmailArr['Api.function'] = __FUNCTION__;
@@ -148,10 +147,10 @@ class CommonClass
             $result = json_decode($result, true);
             return $result;
         }
-        if($responseCode==400 && strpos($result,'用户名或者密码错误')!==false){
+        if ($responseCode == 400 && strpos($result, '用户名或者密码错误') !== false) {
             return false;
         }
-        if($responseCode==401 && strpos($result,'令牌已过期')!==false){
+        if ($responseCode == 401 && strpos($result, '令牌已过期') !== false) {
             return false;
         }
         //进入发送邮件内容--{{
@@ -237,15 +236,15 @@ class CommonClass
         //successful 请求已成功，请求所希望的响应头或数据体将随此响应返回
         if ($responseCode == 200) {
             $result = json_decode($result, true);
-            if(!$result['code']){
+            if (!$result['code']) {
                 self::ErrorSendMail('接口报错', $result);
             }
             return $result;
         }
-        if($responseCode==400 && strpos($result,'用户名或者密码错误')!==false){
+        if ($responseCode == 400 && strpos($result, '用户名或者密码错误') !== false) {
             return false;
         }
-        if($responseCode==401 && strpos($result,'令牌已过期')!==false){
+        if ($responseCode == 401 && strpos($result, '令牌已过期') !== false) {
             return false;
         }
         //进入发送邮件内容--{{
@@ -278,6 +277,34 @@ class CommonClass
         return $basics[$controller][$action];
     }
 
+    public static function ajax_success($data = [], $custom = [])
+    {
+        exit(json_encode(array('data' => $data) + $custom, JSON_UNESCAPED_UNICODE));
+    }
+
+
+    public static function ajax_error($data = [], $custom = [])
+    {
+        exit(json_encode(array('code' => 0, 'data' => $data) + $custom, JSON_UNESCAPED_UNICODE));
+    }
+
+    /**
+     * 获取接口过得来post或者get数据
+     * @return array|mixed|null
+     */
+    public static function get_api_data()
+    {
+        $input = null;
+        if (!empty (file_get_contents('php://input'))) {
+            $input = json_decode(file_get_contents('php://input'), true);
+        }
+        if (!is_array($input)) {
+            $input = Yii::$app->request->bodyParams;
+        }
+        return $input;
+
+
+    }
 }
 
 ?>

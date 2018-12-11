@@ -5,17 +5,20 @@ namespace app\modules\ajax\controllers\ajax;
 
 use Yii;
 use yii\rest\Action;
+use app\common\CommonClass;
 
 
 
 
 
 
-class indexAction extends Action
+class loginAction extends Action
 {
 
     public function run()
     {
+        $input = CommonClass::get_api_data();
+        print_r($input);
         die("调用成功");
     }
 }

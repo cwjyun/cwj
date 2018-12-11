@@ -141,11 +141,23 @@ use yii\helpers\Html;
     jQuery(document).ready(function () {
         App.init();
     });
- $(".check_login").click(function(){
-     var user_name = $("input[name='username']").val();
-     var pass_word = $("input[name='password']").val();
-     return false;
- })
+    $(".check_login").click(function () {
+        var user_name = $("input[name='username']").val();
+        var pass_word = $("input[name='password']").val();
+        $.ajax({
+            type: "POST",
+            url: "<?=Yii::$app->urlManager->createUrl(['ajax/ajax/login'])?>",
+            data: {
+                user_name: user_name,
+                pass_word: pass_word
+            },
+            success: function (data) {
+                $('#ajax_tagselector_group').html(data);
+            }
+        });
+
+
+    })
 
 </script>
 

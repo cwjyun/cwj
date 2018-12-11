@@ -13,7 +13,7 @@ use yii\rest\ActiveController;
 
 
 
-class IndexController extends ActiveController {
+class AjaxController extends ActiveController {
 
     public $modelClass = 'app\models\vip_api_logs';
 
@@ -31,8 +31,8 @@ class IndexController extends ActiveController {
             'class' => 'app\modules\zajax\controllers\task\sendcorrectreportAction',
             'modelClass' => $this->modelClass
         ];
-        $actions['index'] = [
-            'class' => 'app\modules\ajax\controllers\ajax\indexAction',
+        $actions['login'] = [
+            'class' => 'app\modules\ajax\controllers\ajax\loginAction',
             'modelClass' => $this->modelClass
         ];
         

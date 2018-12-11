@@ -26,7 +26,7 @@ use yii\helpers\Html;
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href="index.html"><?= Html::img('@path_root/assets/img/logo1-default.png',['id'=>'logo-header'])?></a>
+            <a href="index.html"><?= Html::img('@path_root/static/img/logo1-default.png',['id'=>'logo-header'])?></a>
         </div><!-- /logo -->
 
         <!-- Menu -->

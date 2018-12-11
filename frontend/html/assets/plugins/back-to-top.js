@@ -15,7 +15,7 @@ var scrolltotop={
 
 	state: {isvisible:false, shouldvisible:false},
 
-	scrollup:function(){
+	scrollup:function(){                                       
 		if (!this.cssfixedsupport) //if control is positioned using JavaScript
 			this.$control.css({opacity:0}) //hide control immediately after clicking it
 		var dest=isNaN(this.setting.scrollto)? this.setting.scrollto : parseInt(this.setting.scrollto)

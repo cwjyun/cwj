@@ -13,6 +13,11 @@ $config = [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'defaultRoute' => 'public/index',//默认路由，控制器+方法
+    'modules' => [
+        'ajax' => [
+            'class' => 'app\modules\ajax\Module'
+        ]
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
@@ -35,7 +40,7 @@ $config = [
                 ],
             ],
         ],
-        'redis'=>$params['redis'],
+        'redis' => $params['redis'],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],

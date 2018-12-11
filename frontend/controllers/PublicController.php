@@ -17,7 +17,6 @@ class PublicController extends Controller
     
     public function actionIndex()
     {
-        $controller = Yii::$app->controller->id;
         $basics = CommonClass::get_basics_info();
         return $this->render('index', ['basics' => $basics]);
     }

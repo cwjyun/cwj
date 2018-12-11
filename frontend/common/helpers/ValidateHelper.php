@@ -1,6 +1,6 @@
 <?php
 
-namespace api\common\helpers;
+namespace app\common\helpers;
 
 use Yii;
 use api\common\Result;
@@ -10,27 +10,27 @@ use api\common\ErrorCode;
 class ValidateHelper {
 	
 	 public static $builtInValidators = [
-        'boolean' => 'api\common\helpers\validators\BooleanValidator',
-        'captcha' => 'api\common\helpers\validators\CaptchaValidator',
-        'compare' => 'api\common\helpers\validators\CompareValidator',
-        'date' => 'api\common\helpers\validators\DateValidator',
-        'datetime' => 'api\common\helpers\validators\DatetimeValidator',
-        'time' => 'api\common\helpers\validators\TimeValidator',
-        'double' => 'api\common\helpers\validators\DoubleValidator',
-        'email' => 'api\common\helpers\validators\EmailValidator',
-        'exist' => 'api\common\helpers\validators\ExistValidator',
-        'file' => 'api\common\helpers\validators\FileValidator',
-        'image' => 'api\common\helpers\validators\ImageValidator',
-        'match' => 'api\common\helpers\validators\RegularExpressionValidator',
-        'number' => 'api\common\helpers\validators\NumberValidator',
-        'required' => 'api\common\helpers\validators\RequiredValidator',
-        'string' => 'api\common\helpers\validators\StringValidator',
-        'url' => 'api\common\helpers\validators\UrlValidator',
-        'ip' => 'api\common\helpers\validators\IpValidator',
-		'integer' => 'api\common\helpers\validators\IntegerValidator',
-		'ip' => 'api\common\helpers\validators\IpValidator',
-		'numeric' => 'api\common\helpers\validators\NumericValidator',
-        'verification' => 'api\common\helpers\validators\VerificationValidator',
+        'boolean' => 'app\common\helpers\validators\BooleanValidator',
+        'captcha' => 'app\common\helpers\validators\CaptchaValidator',
+        'compare' => 'app\common\helpers\validators\CompareValidator',
+        'date' => 'app\common\helpers\validators\DateValidator',
+        'datetime' => 'app\common\helpers\validators\DatetimeValidator',
+        'time' => 'app\common\helpers\validators\TimeValidator',
+        'double' => 'app\common\helpers\validators\DoubleValidator',
+        'email' => 'app\common\helpers\validators\EmailValidator',
+        'exist' => 'app\common\helpers\validators\ExistValidator',
+        'file' => 'app\common\helpers\validators\FileValidator',
+        'image' => 'app\common\helpers\validators\ImageValidator',
+        'match' => 'app\common\helpers\validators\RegularExpressionValidator',
+        'number' => 'app\common\helpers\validators\NumberValidator',
+        'required' => 'app\common\helpers\validators\RequiredValidator',
+        'string' => 'app\common\helpers\validators\StringValidator',
+        'url' => 'app\common\helpers\validators\UrlValidator',
+        'ip' => 'app\common\helpers\validators\IpValidator',
+		'integer' => 'app\common\helpers\validators\IntegerValidator',
+		'ip' => 'app\common\helpers\validators\IpValidator',
+		'numeric' => 'app\common\helpers\validators\NumericValidator',
+        'verification' => 'app\common\helpers\validators\VerificationValidator',
     ];
 	
 	/**

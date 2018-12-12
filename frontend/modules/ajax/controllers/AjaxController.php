@@ -12,8 +12,8 @@ namespace app\modules\ajax\controllers;
 use yii\rest\ActiveController;
 
 
-
-class AjaxController extends ActiveController {
+class AjaxController extends ActiveController
+{
 
     public $modelClass = 'app\models\vip_api_logs';
 
@@ -22,11 +22,11 @@ class AjaxController extends ActiveController {
         $behaviors = parent::behaviors();
         return $behaviors;
     }
-    
+
     public function actions()
     {
         $actions = parent::actions();
-        unset($actions['delete'], $actions['create'] ,  $actions['update']);
+        unset($actions['delete'], $actions['create'], $actions['update']);
         $actions['sendcorrectreport'] = [
             'class' => 'app\modules\zajax\controllers\task\sendcorrectreportAction',
             'modelClass' => $this->modelClass
@@ -35,7 +35,11 @@ class AjaxController extends ActiveController {
             'class' => 'app\modules\ajax\controllers\ajax\loginAction',
             'modelClass' => $this->modelClass
         ];
-        
+        $actions['reg'] = [
+            'class' => 'app\modules\ajax\controllers\ajax\regAction',
+            'modelClass' => $this->modelClass
+        ];
+
         return $actions;
     }
 

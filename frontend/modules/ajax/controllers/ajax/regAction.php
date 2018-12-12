@@ -10,7 +10,7 @@ use app\common\CommonClass;
 use app\common\helpers\ValidateHelper;
 
 
-class loginAction extends Action
+class regAction extends Action
 {
 
     public function run()
@@ -35,7 +35,7 @@ class loginAction extends Action
             }
             Yii::$app->session['token'] = $result['data']['token'];
             $hash_uid = hash('sha1', $input['username']);
-            Yii::$app->redis->setex("user:".$hash_uid, 31536000,json_encode($input));
+            Yii::$app->redis->setex("user:" . $hash_uid, 31536000, json_encode($input));
             Yii::$app->redis->expire('cwj_session_id:' . $hash_uid, 31536000);
             $cookies = Yii::$app->response->cookies;
             $cookies->add(new \yii\web\Cookie([
@@ -43,11 +43,9 @@ class loginAction extends Action
                 'value' => $hash_uid,
                 'expire' => 31536000
             ]));
-            $ha = 'user:'.$cookies->get('cwj_session_id');
-            $result = json_decode(Yii::$app->redis->get($ha),true);
             CommonClass::ajax_success(['data' => $hash_uid, 'message' => '登录成功']);
         } catch (\Exception $e) {
-            CommonClass::ajax_success($e);
+            echo $e;
         }
     }
 }

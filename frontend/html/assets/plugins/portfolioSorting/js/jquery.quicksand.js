@@ -73,7 +73,7 @@ Github site: http://github.com/razorjack/quicksand
                     postCallbackPerformed = 1;
                     
                     // hack: 
-                    // used to be: $sourceParent.html($dest.html()); // put target HTML into visible source container
+                    // used to be: $sourceParent.html($dest.html()); // put target html into visible source container
                     // but new webkit builds cause flickering when replacing the collections
                     $toDelete = $sourceParent.find('> *');
                     $sourceParent.prepend($dest.find('> *'));
@@ -154,7 +154,7 @@ Github site: http://github.com/razorjack/quicksand
             rawDest.style.height = 'auto';
             rawDest.style.width = $sourceParent.width() + 'px';
             $dest.append($collection);      
-            // insert node into HTML
+            // insert node into html
             // Note that the node is under visible source container in the exactly same position
             // The browser render all the items without showing them (opacity: 0.0)
             // No offset calculations are needed, the browser just extracts position from underlayered destination items

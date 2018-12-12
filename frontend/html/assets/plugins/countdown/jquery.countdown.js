@@ -479,9 +479,9 @@ $.extend(Countdown.prototype, {
 		return num;
 	},
 
-	/* Generate the HTML to display the countdown widget.
+	/* Generate the html to display the countdown widget.
 	   @param  inst  (object) the current settings for this instance
-	   @return  (string) the new HTML for the countdown display */
+	   @return  (string) the new html for the countdown display */
 	_generateHTML: function(inst) {
 		var self = this;
 		// Determine what to show
@@ -553,7 +553,7 @@ $.extend(Countdown.prototype, {
 	   @param  compact          (boolean) true if using compact labels
 	   @param  significant      (number) the number of periods with values to show, zero for all
 	   @param  showSignificant  (boolean[7]) other periods to show for significance
-	   @return  (string) the custom HTML */
+	   @return  (string) the custom html */
 	_buildLayout: function(inst, show, layout, compact, significant, showSignificant) {
 		var labels = inst.options[compact ? 'compactLabels' : 'labels'];
 		var whichLabels = inst.options.whichLabels || this._normalLabels;

@@ -11,7 +11,7 @@ return [
     'check_api' => '3344314',
     'public_rsa_key' => __DIR__ . '/../../common/tool/Rsakey/rsa_public_key.pem',
     'private_rsa_key' => __DIR__ . '/../../common/tool/Rsakey/rsa_private_key.pem',
-    'RasKey'=>'cwjyun',
+    'RasKey' => 'cwjyun',
     'wechat_api' => [
         'getToken' => WECHAT_API_URL . '/wechat/token',
         'get_opid' => WECHAT_API_URL . '/wechat/get_opid',
@@ -30,8 +30,12 @@ return [
             'login' => [
                 'title' => '小崔登录页',
                 'name' => '登录'
+            ],
+            'reg' => [
+                'title' => '小崔注册页',
+                'name' => '注册'
             ]
         ]
     ],
-    'login'=> WECHAT_API_URL.'/cwj/login'
+    'login' => WECHAT_API_URL . '/cwj/login'
 ];

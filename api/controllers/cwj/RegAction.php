@@ -31,10 +31,10 @@ class RegAction extends Action
             }
             $user = new User_cwj();
             $check_user_name = $user::find()->where(['username' => $input['username']])->one();
-            if($check_user_name){
-                CommonClass::ajax_error(['msg'=>'账号存在']);
+            if ($check_user_name) {
+                CommonClass::ajax_error(['message' => '账号存在']);
             }
-            
+
             $input['update_time'] = date('Y-m-d H:i:s');
             $input['create_time'] = date('Y-m-d H:i:s');
             $input['ip'] = Yii::$app->request->getUserIP();
@@ -43,9 +43,9 @@ class RegAction extends Action
             $user->save();
             if ($user->errors) {
                 CommonClass::ErrorSendMail('注册时数据库保存', ['error' => $user->errors, 'content' => $input]);
-                CommonClass::ajax_error($user->errors);
+                CommonClass::ajax_error(['message' => '接口出错']);
             }
-            CommonClass::ajax_success(['msg'=>'创建账号成功']);
+            CommonClass::ajax_success(['message' => '创建账号成功']);
         } catch (\Exception $e) {
             echo $e;
         }

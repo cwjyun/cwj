@@ -1,10 +1,13 @@
+<?php
+    use yii\helpers\Html;   
+?>
 <!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Unify | Welcome...</title>
+    <title><?= $this->context->basics['title']; ?></title>
 
     <!-- Meta -->
     <meta charset="utf-8" />
@@ -13,223 +16,52 @@
     <meta name="author" content="" />
 
     <!-- CSS Global Compulsory-->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/headers/header1.css" />
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="assets/css/style_responsive.css" />
-    <link rel="shortcut icon" href="favicon.ico" />        
+   <?= Html::cssFile('@path_root/plugins/bootstrap/css/bootstrap.min.css') ?>
+   <?= Html::cssFile('@path_root/css/style.css') ?>
+   <?= Html::cssFile('@path_root/css/headers/header1.css') ?>
+   <?= Html::cssFile('@path_root/plugins/bootstrap/css/bootstrap-responsive.min.css') ?>
+   <?= Html::cssFile('@path_root/css/style_responsive.css') ?>
+    <?= Html::cssFile('@path_root/favicon.ico') ?>     
     <!-- CSS Implementing Plugins -->    
-    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css" />
-    <!-- CSS Theme -->    
-    <link rel="stylesheet" href="assets/css/themes/default.css" id="style_color" />
-    <link rel="stylesheet" href="assets/css/themes/headers/default.css" id="style_color-header-1" />    
+   <?= Html::cssFile('@path_root/plugins/font-awesome/css/font-awesome.css') ?>
+    <!-- CSS Theme -->
+   <?= Html::cssFile('@path_root/css/themes/default.css',['id'=>'style_color'])?>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head> 
 
 <body>
-<!--=== Style Switcher ===-->    
-<i class="style-switcher-btn icon-cogs"></i>
-<div class="style-switcher">
-    <div class="theme-close"><i class="icon-remove"></i></div>
-    <div class="theme-heading">Theme Colors</div>
-    <ul class="unstyled">
-        <li class="theme-default theme-active" data-style="default" data-header="light"></li>
-        <li class="theme-blue" data-style="blue" data-header="light"></li>
-        <li class="theme-orange" data-style="orange" data-header="light"></li>
-        <li class="theme-red" data-style="red" data-header="light"></li>
-        <li class="theme-light" data-style="light" data-header="light"></li>
-    </ul>
-</div><!--/style-switcher-->
-<!--=== End Style Switcher ===-->    
 
-<!--=== Top ===-->    
-<div class="top">
-    <div class="container">			
-        <ul class="loginbar pull-right">
-            <li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
-            	<ul class="nav-list">
-                	<li class="active"><a href="#">English</a> <i class="icon-ok"></i></li>
-                	<li><a href="#">Spanish</a></li>
-                	<li><a href="#">Russian</a></li>
-                	<li><a href="#">German</a></li>
-                </ul>
-            </li>	
-            <li class="devider">&nbsp;</li>
-            <li><a href="page_faq.html" class="login-btn">Help</a></li>	
-            <li class="devider">&nbsp;</li>
-            <li><a href="page_login.html" class="login-btn">Login</a></li>	
-        </ul>
-    </div>		
-</div><!--/top-->
-<!--=== End Top ===-->    
-
-<!--=== Header ===-->
-<div class="header">               
-    <div class="container"> 
-        <!-- Logo -->       
-        <div class="logo">                                             
-            <a href="index.html"><img id="logo-header" src="assets/img/logo1-default.png" alt="Logo" /></a>
-        </div><!-- /logo -->        
-                                    
-        <!-- Menu -->       
-        <div class="navbar">                                
-            <div class="navbar-inner">                                  
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a><!-- /nav-collapse -->                                  
-                <div class="nav-collapse collapse">                                     
-                    <ul class="nav top-2">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="index.html">Option1: Landing Page</a></li>
-                                <li><a href="page_home.html">Option2: Header Option</a></li>
-                                <li><a href="page_home4.html">Option3: Revolution Slider</a></li>
-                                <li><a href="page_home5.html">Option4: Amazing Content</a></li>
-                                <li><a href="page_home1.html">Option5: Mixed Content</a></li>
-                                <li><a href="page_home2.html">Option6: Content with Sidebar</a></li>
-                                <li><a href="page_home3.html">Option7: Aplle Style Slider</a></li>
-                                <li><a href="page_home_all.html">Home All In One</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li class="active">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Pages
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="page_about.html">About Us</a></li>
-                                <li><a href="page_services.html">Services</a></li>
-                                <li><a href="page_pricing.html">Pricing</a></li>
-                                <li><a href="page_coming_soon.html">Coming Soon</a></li>
-                                <li><a href="page_faq.html">FAQs</a></li>
-                                <li><a href="page_search.html">Search Result</a></li>
-                                <li><a href="page_gallery.html">Gallery</a></li>
-                                <li class="active"><a href="page_registration.html">Registration</a></li>
-                                <li><a href="page_login.html">Login</a></li>
-                                <li><a href="page_404.html">404</a></li>
-                                <li><a href="page_clients.html">Clients</a></li>
-                                <li><a href="page_privacy.html">Privacy Policy</a></li>
-                                <li><a href="page_terms.html">Terms of Service</a></li>
-                                <li><a href="page_column_left.html">2 Columns (Left)</a></li>
-                                <li><a href="page_column_right.html">2 Columns (Right)</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Features
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="feature_grid.html">Grid Layout</a></li>
-                                <li><a href="feature_typography.html">Typography</a></li>
-                                <li><a href="feature_thumbnail.html">Thumbnails</a></li>
-                                <li><a href="feature_component.html">Components</a></li>
-                                <li><a href="feature_navigation.html">Navigation</a></li>
-                                <li><a href="feature_table.html">Tables</a></li>
-                                <li><a href="feature_form.html">Forms</a></li>
-                                <li><a href="feature_icons.html">Icons</a></li>
-                                <li><a href="feature_button.html">Buttons</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="portfolio_item.html">Portfolio Item</a></li>
-                                <li><a href="portfolio_2columns.html">Portfolio 2 Columns</a></li>
-                                <li><a href="portfolio_3columns.html">Portfolio 3 Columns</a></li>
-                                <li><a href="portfolio_4columns.html">Portfolio 4 Columns</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog_item.html">Blog Item</a></li>
-                                <li><a href="blog_left_sidebar.html">Blog Left Sidebar</a></li>
-                                <li><a href="blog_item_left_sidebar.html">Blog Item Left Sidebar</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="page_contact.html">Contact Default</a></li>
-                                <li><a href="page_contact1.html">Contact Boxed Map</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li><a class="search"><i class="icon-search search-btn"></i></a></li>                               
-                    </ul>
-                    <div class="search-open">
-                        <div class="input-append">
-                            <form />
-                                <input type="text" class="span3" placeholder="Search" />
-                                <button type="submit" class="btn-u">Go</button>
-                            </form>
-                        </div>
-                    </div>
-                </div><!-- /nav-collapse -->                                
-            </div><!-- /navbar-inner -->
-        </div><!-- /navbar -->                          
-    </div><!-- /container -->               
-</div><!--/header -->      
-<!--=== End Header ===-->
 
 <!--=== Content Part ===-->
 <div class="body">
-	<div class="breadcrumbs margin-bottom-50">
-    	<div class="container">
-            <h1 class="color-green pull-left">Register</h1>
-            <ul class="pull-right breadcrumb">
-                <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-                <li><a href="">Pages</a> <span class="divider">/</span></li>
-                <li class="active">Registration</li>
-            </ul>
-        </div><!--/container-->
-    </div><!--/breadcrumbs-->
+    <?= app\common\widgets\navPathName::widget() ?>
 
 	<div class="container">		
 		<div class="row-fluid margin-bottom-10">
         	<form class="reg-page" />
-            	<h3>Register a new account</h3>
+            	<h3>注册新帐户</h3>
                 <div class="controls">    
-                    <label>First Name</label>
+                    <label>用户名</label>
                     <input type="text" class="span12" />
-                    <label>Last Name</label>
-                    <input type="text" class="span12" />
-                    <label>Email Address <span class="color-red">*</span></label>
+                    <label>邮箱<span class="color-red">*</span></label>
                     <input type="text" class="span12" />
                 </div>
                 <div class="controls">
                     <div class="span6">
-                        <label>Password <span class="color-red">*</span></label>
+                        <label>密码<span class="color-red">*</span></label>
                         <input type="text" class="span12" />
                     </div>
                     <div class="span6">
-                        <label>Confirm Password <span class="color-red">*</span></label>
+                        <label>确认密码<span class="color-red">*</span></label>
                         <input type="text" class="span12" />
                     </div>
                 </div>
                 <div class="controls form-inline">
-                    <label class="checkbox"><input type="checkbox" />&nbsp; I read <a href="">Terms and Conditions</a></label>
-                    <button class="btn-u pull-right" type="submit">Register</button>
+                    <label class="checkbox"><input type="checkbox" />&nbsp; 阅读 <a href="">条款</a></label>
+                    <button class="btn-u pull-right" type="submit">注册</button>
                 </div>
                 <hr />
-				<p>Already Signed Up? Click <a href="page_login.html" class="color-green">Sign In</a> to login your account.</p>
+				<p>已经签署了吗?<a href="page_login.html" class="color-green">单击</a>“登录”以登录您的帐户。</p>
             </form>
         </div><!--/row-fluid-->
 	</div><!--/container-->		
@@ -260,19 +92,19 @@
                 <div class="posts">
                     <div class="headline"><h3>Recent Blog Entries</h3></div>
                     <dl class="dl-horizontal">
-                        <dt><a href="#"><img src="assets/img/sliders/elastislide/6.jpg" alt="" /></a></dt>
+                        <dt><a href="#"><?= Html::img('@path_root/img/sliders/elastislide/6.jpg')?></a></dt>
                         <dd>
                             <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
                         </dd>
                     </dl>
                     <dl class="dl-horizontal">
-                    <dt><a href="#"><img src="assets/img/sliders/elastislide/10.jpg" alt="" /></a></dt>
+                    <dt><a href="#"><?= Html::img('@path_root/img/sliders/elastislide/10.jpg')?></a></dt>
                         <dd>
                             <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
                         </dd>
                     </dl>
                     <dl class="dl-horizontal">
-                    <dt><a href="#"><img src="assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
+                    <dt><a href="#"><?= Html::img('@path_root/img/sliders/elastislide/11.jpg')?></a></dt>
                         <dd>
                             <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
                         </dd>
@@ -308,37 +140,21 @@
 </div><!--/footer-->	
 <!--=== End Footer ===-->
 
-<!--=== Copyright ===-->
-<div class="copyright">
-	<div class="container">
-		<div class="row-fluid">
-			<div class="span8">						
-	            <p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-			</div>
-			<div class="span4">	
-				<a href="index.html"><img id="logo-footer" src="assets/img/logo2-default.png" class="pull-right" alt="" /></a>
-			</div>
-		</div><!--/row-fluid-->
-	</div><!--/container-->	
-</div><!--/copyright-->	
-<!--=== End Copyright ===-->
 
 <!-- JS Global Compulsory -->           
-<script type="text/javascript" src="assets/js/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>        
-<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+<?= Html::jsFile('@path_root/js/jquery-1.8.2.min.js')?>
+<?= Html::jsFile('@path_root/js/modernizr.custom.js')?>
+<?= Html::jsFile('@path_root/plugins/bootstrap/js/bootstrap.min.js')?>
 <!-- JS Implementing Plugins -->           
-<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+<?= Html::jsFile('@path_root/plugins/back-to-top.js')?>
 <!-- JS Page Level -->           
-<script type="text/javascript" src="assets/js/app.js"></script>
+<?= Html::jsFile('@path_root/js/app.js')?>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
     });
 </script>
-<!--[if lt IE 9]>
-    <script src="assets/js/respond.js"></script>
-<![endif]-->
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+ <?= Html::jsFile('@path_root/js/respond.js')?>
+<?= Html::jsFile('@path_root/js/stat.js')?>
 </body>
 </html> 

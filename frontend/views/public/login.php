@@ -147,17 +147,30 @@ use yii\helpers\Html;
         $.ajax({
             type: "POST",
             url: "<?=Yii::$app->urlManager->createUrl(['ajax/ajax/login'])?>",
+            dataType: "json",//数据类型可以为 text xml json  script  jsonp
             data: {
                 username: user_name,
                 password: pass_word
             },
             success: function (data) {
-                $('#ajax_tagselector_group').html(data);
+                if (data.code) {
+                    setCookie('cwj_session_id', data.data.data);
+                    alert('登录成功');
+                } else {
+
+                }
             }
         });
 
 
     })
+
+    function setCookie(name, value) {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+    }
 
 </script>
 

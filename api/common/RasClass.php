@@ -251,7 +251,10 @@ class RasClass extends Component
             return false;
         }
         $key = json_decode($this->decrypt($data['sign']), true);
-        if ($this->rasKey != $key['sign']) {
+        if (!isset($key['RasKey'])) {
+            return false;
+        }
+        if ($this->rasKey != $key['RasKey']) {
             return false;
 
         }

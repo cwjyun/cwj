@@ -26,7 +26,7 @@ class CommonClass
 
     public static function ajax_success($data = [], $custom = [])
     {
-        exit(json_encode(array('data' => $data) + $custom, JSON_UNESCAPED_UNICODE));
+        exit(json_encode(array('code'=>1,'data'=>$data) + $custom, JSON_UNESCAPED_UNICODE));
     }
 
 

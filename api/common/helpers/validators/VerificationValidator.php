@@ -7,6 +7,7 @@
 
 namespace api\common\helpers\validators;
 
+use app\common\CommonClass;
 use Yii;
 use api\models\Signature;
 

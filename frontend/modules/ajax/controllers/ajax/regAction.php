@@ -22,16 +22,14 @@ class regAction extends Action
             ];
 
             $check_data = ValidateHelper::validate($input, $rules);
-            if ($check_data->code!=0) {
+            if ($check_data->code != 0) {
                 CommonClass::ajax_error(['message' => $check_data->message]);
             }
             $result = CommonClass::reg($input);
-            print_r($result);
-            die();
             if (!$result['code']) {
-                CommonClass::ajax_error($result['data']);
+                CommonClass::ajax_error(['message' => $result['data']['message']]);
             }
-
+            CommonClass::ajax_success(['message' => $result['data']['message']]);
         } catch (\Exception $e) {
             echo $e;
         }

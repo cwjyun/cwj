@@ -279,7 +279,7 @@ class CommonClass
 
     public static function ajax_success($data = [], $custom = [])
     {
-        exit(json_encode(array('code' => 1,'data' => $data) + $custom, JSON_UNESCAPED_UNICODE));
+        exit(json_encode(array('code' => 1, 'data' => $data) + $custom, JSON_UNESCAPED_UNICODE));
     }
 
 
@@ -310,10 +310,23 @@ class CommonClass
      */
     public static function login($data)
     {
-        $data['RasKey'] = \Yii::$app->params['RasKey'] ;
+        $data['RasKey'] = \Yii::$app->params['RasKey'];
         $json = json_encode($data);
         $data['sign'] = self::set_aign($json);
         $url = Yii::$app->params['login'];
+        return self::postCurl_system($url, $data);
+    }
+
+    /**
+     * 用户注册接口
+     * @param $data
+     */
+    public static function reg($data)
+    {
+        $data['RasKey'] = \Yii::$app->params['RasKey'];
+        $json = json_encode($data);
+        $data['sign'] = self::set_aign($json);
+        $url = Yii::$app->params['reg'];
         return self::postCurl_system($url, $data);
     }
 

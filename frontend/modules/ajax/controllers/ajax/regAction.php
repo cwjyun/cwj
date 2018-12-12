@@ -17,33 +17,21 @@ class regAction extends Action
     {
         try {
             $input = CommonClass::get_api_data();
-
             $rules = [
-                [['username', 'password'], 'required'],
+                [['username', 'password', 'email'], 'string', 'length' => [1, 200]],
             ];
 
             $check_data = ValidateHelper::validate($input, $rules);
-
-            if (!$check_data) {
+            if ($check_data->code!=0) {
                 CommonClass::ajax_error(['message' => $check_data->message]);
             }
-
-            $result = CommonClass::login($input);
-
+            $result = CommonClass::reg($input);
+            print_r($result);
+            die();
             if (!$result['code']) {
                 CommonClass::ajax_error($result['data']);
             }
-            Yii::$app->session['token'] = $result['data']['token'];
-            $hash_uid = hash('sha1', $input['username']);
-            Yii::$app->redis->setex("user:" . $hash_uid, 31536000, json_encode($input));
-            Yii::$app->redis->expire('cwj_session_id:' . $hash_uid, 31536000);
-            $cookies = Yii::$app->response->cookies;
-            $cookies->add(new \yii\web\Cookie([
-                'name' => 'cwj_session_id',
-                'value' => $hash_uid,
-                'expire' => 31536000
-            ]));
-            CommonClass::ajax_success(['data' => $hash_uid, 'message' => '登录成功']);
+
         } catch (\Exception $e) {
             echo $e;
         }

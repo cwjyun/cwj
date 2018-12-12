@@ -22,12 +22,12 @@ class RegAction extends Action
     {
         try {
             $rules = [
-                [['username', 'password', 'email'], 'string', 'length' => [8, 20]],
+                [['username', 'password', 'email'], 'string', 'length' => [1, 20]],
             ];
             $input = CommonClass::get_api_data();
             $check_data = ValidateHelper::validate($input, $rules);
             if ($check_data->code != ErrorCode::SUCCEED) {
-                CommonClass::ajax_error($check_data->message);
+                CommonClass::ajax_error(['message'=>$check_data->message]);
             }
             $user = new User_cwj();
             $check_user_name = $user::find()->where(['username' => $input['username']])->one();

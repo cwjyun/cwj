@@ -28,7 +28,7 @@ class LoginAction extends Action
             $input = CommonClass::get_api_data();
             $check_data = ValidateHelper::validate($input, $rules);
             if ($check_data->code != ErrorCode::SUCCEED) {
-                CommonClass::ajax_error($check_data->message);
+                CommonClass::ajax_error(['message'=>$check_data->message]);
             }
             $user_info = User_cwj::find()->where(['username' => $input['username'], 'password' => md5($input['password'])])->asArray()->one();
             if (!$user_info) {

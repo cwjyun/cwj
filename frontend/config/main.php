@@ -51,7 +51,7 @@ $config = [
         ],
         'redis' => $params['redis'],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'admin/error',
         ],
         'cwj_db' => $params['cwj'],
         'log_db' => $params['log'],

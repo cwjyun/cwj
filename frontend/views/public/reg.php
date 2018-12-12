@@ -183,9 +183,10 @@ use yii\helpers\Html;
             },
             success: function (data) {
                 if (data.code) {
-                    alert(1);
+                    alert(data.data.message);
                 } else {
-
+                    alert(data.data.message);
+                    return false;
                 }
             }
         });

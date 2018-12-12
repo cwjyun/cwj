@@ -2,8 +2,10 @@
 
 namespace backend\controllers;
 
+use backend\common\CommonClass;
 use Yii;
 use yii\web\Controller;
+use backend\models\user\User_admin;
 
 /**
  * Site controller
@@ -12,7 +14,7 @@ class BaseController extends Controller
 {
     public $enableCsrfValidation = false;
 
-    
+
     public function beforeAction($action)
     {
         if (!Yii::$app->session['id'] && Yii::$app->controller->action->id != 'login') {
@@ -28,7 +30,11 @@ class BaseController extends Controller
     public function actionLogin()
     {
         if (Yii::$app->request->isAjax) {
-            die("xxxx");
+            $post = Yii::$app->request->post();
+            $user_info = User_admin::find()->where(['username' => $post['username'], 'password' => md5($post['password'])])->one();
+            if(!$user_info){
+                CommonClass::ajax_error(['message'=>'账号或者密码错误']);
+            }
         }
         return $this->render('login');
     }

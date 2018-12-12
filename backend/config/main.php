@@ -6,7 +6,7 @@ $params = array_merge(
     require __DIR__ . '/params-local.php'
 );
 
-return [
+$config = [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
@@ -35,6 +35,14 @@ return [
                 ],
             ],
         ],
+        //日志库
+        'log_db' => $params['log'],
+        //主库
+        'cwj_db' => $params['cwj'],
+        //微信库
+        'wechat_db' => $params['wechat'],
+        //redis 缓存库
+        'redis' => $params['redis'],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -48,3 +56,19 @@ return [
     ],
     'params' => $params,
 ];
+
+if (YII_ENV_DEV) {
+    // configuration adjustments for 'dev' environmen   t
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+        'allowedIPs' => ['172.*.*.*']
+    ];
+
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+        'allowedIPs' => ['172.*.*.*']
+    ];
+}
+return $config;

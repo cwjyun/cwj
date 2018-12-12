@@ -43,7 +43,7 @@ use yii\helpers\Html;
             form.on('submit(login)', function (data) {
                 var username = data.field.username;
                 var password = data.field.password;
-                var url = "<?= Yii::$app->urlManager->createUrl(['base/login'])?>"
+                var url = "<?= Yii::$app->urlManager->createUrl(['base/login'])?>";
                 $.ajax({
                     url: url,
                     data: {

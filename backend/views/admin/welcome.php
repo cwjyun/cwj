@@ -31,42 +31,42 @@ use yii\helpers\Html;
                                             <a href="javascript:;" class="x-admin-backlog-body">
                                                 <h3>文章数</h3>
                                                 <p>
-                                                    <cite>66</cite></p>
+                                                    <cite>0</cite></p>
                                             </a>
                                         </li>
                                         <li class="layui-col-xs2">
                                             <a href="javascript:;" class="x-admin-backlog-body">
                                                 <h3>会员数</h3>
                                                 <p>
-                                                    <cite>12</cite></p>
+                                                    <cite>0</cite></p>
                                             </a>
                                         </li>
                                         <li class="layui-col-xs2">
                                             <a href="javascript:;" class="x-admin-backlog-body">
                                                 <h3>回复数</h3>
                                                 <p>
-                                                    <cite>99</cite></p>
+                                                    <cite>0</cite></p>
                                             </a>
                                         </li>
                                         <li class="layui-col-xs2">
                                             <a href="javascript:;" class="x-admin-backlog-body">
                                                 <h3>商品数</h3>
                                                 <p>
-                                                    <cite>67</cite></p>
+                                                    <cite>0</cite></p>
                                             </a>
                                         </li>
                                         <li class="layui-col-xs2">
                                             <a href="javascript:;" class="x-admin-backlog-body">
                                                 <h3>文章数</h3>
                                                 <p>
-                                                    <cite>67</cite></p>
+                                                    <cite>0</cite></p>
                                             </a>
                                         </li>
                                         <li class="layui-col-xs2">
                                             <a href="javascript:;" class="x-admin-backlog-body">
                                                 <h3>文章数</h3>
                                                 <p>
-                                                    <cite>6766</cite></p>
+                                                    <cite>0</cite></p>
                                             </a>
                                         </li>
                                     </ul>

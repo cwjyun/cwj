@@ -26,7 +26,7 @@ use yii\helpers\Html;
 </head>
 
 <body>
-<?= app\common\widgets\navPathName::widget() ?>
+<?= app\common\widgets\welcome::widget() ?>
 <!--=== Content Part ===-->
 <div class="container">
     <div class="row-fluid">

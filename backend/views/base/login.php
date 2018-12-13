@@ -53,6 +53,17 @@ use yii\helpers\Html;
                     type: "POST",
                     dataType: "json",
                     success: function (msg) {
+                        if (!msg.code) {
+                            layer.msg(JSON.stringify(msg.data.message), function () {
+                                return false;
+                            });
+                        } else {
+                            layer.msg(JSON.stringify(msg.data.message), function () {
+                                setCookie('cwj_session_id', msg.data.data);
+                                window.location.href="<?= Yii::$app->urlManager->createUrl(['admin/index'])?>";
+
+                            });
+                        }
 
                     },
                     error: function (error) {
@@ -63,7 +74,12 @@ use yii\helpers\Html;
 
         });
     })
-
+    function setCookie(name, value) {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+    }
 
 </script>
 <script>

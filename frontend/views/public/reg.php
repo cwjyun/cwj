@@ -40,7 +40,7 @@ use yii\helpers\Html;
 
 <!--=== Content Part ===-->
 <div class="body">
-    <?= app\common\widgets\navPathName::widget() ?>
+    <?= app\common\widgets\welcome::widget() ?>
 
     <div class="container">
         <div class="row-fluid margin-bottom-10">

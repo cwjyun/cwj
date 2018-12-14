@@ -6,6 +6,7 @@ use Yii;
 
 class CommonClass
 {
+    static $list;
 
     /**
      * @param $title 邮件标题
@@ -22,7 +23,6 @@ class CommonClass
         $success = $mail->send();
         return $success;
     }
-    
 
 
     public static function ajax_success($data = [], $custom = [])
@@ -37,12 +37,59 @@ class CommonClass
     }
 
 
-
-
     public static function set_aign($data)
     {
         return Yii::$app->Ras->encrypt($data);
     }
+
+
+    /**
+     * 无限极分类         1 0
+     *                    2 0
+     *                    3 0
+     *
+     *                    4 1
+     *                    5 2
+     *                    6 3
+     *
+     *                    7 1
+     *                    8 1
+     * @param $items
+     * @return array
+     */
+    public static function genTreeSort($data, $num = 0)
+    {
+        foreach ($data as $v) {
+            $arr = $v;
+            unset($arr['son']);
+            $num = $num + 1;
+            $num = $v['pid']==0?1:$num;
+            $arr ['num'] = $num;
+            self::$list [] = $arr;
+            if (isset($v['son']) && is_array($v['son'])) {
+                self:: genTreeSort($v['son'], $num);
+            }
+        }
+    }
+
+
+    /**
+     * 无限极分类
+     * @param $items
+     * @return array
+     */
+    public static function genTree($items)
+    {
+        $array = [];
+        foreach ($items as $k => $v) {
+            $array[$v['id']] = $v;
+        }
+        foreach ($array as $item)
+            $array[$item['pid']]['son'][$item['id']] = &$array[$item['id']];
+        return isset($array[0]['son']) ? $array[0]['son'] : array();
+    }
+
+
 }
 
 ?>

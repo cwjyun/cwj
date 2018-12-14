@@ -56,6 +56,9 @@ class BaseController extends Controller
     }
 
 
+    /**
+     * 退出后台
+     */
     public function actionOut()
     {
         $session = Yii::$app->session;

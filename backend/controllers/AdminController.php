@@ -2,9 +2,9 @@
 
 namespace backend\controllers;
 
-use backend\models\user\User_admin;
+use backend\common\CommonClass;
 use Yii;
-use yii\web\User;
+use backend\models\menu;
 
 /**
  * Site controller
@@ -39,12 +39,40 @@ class AdminController extends BaseController
      */
     public function actionCate()
     {
-        return $this->render('cate');
+        $data = menu::get_all();
+        $result = CommonClass::genTree($data);
+        CommonClass::genTreeSort($result);
+        $data = CommonClass::$list;
+        return $this->render('cate', ['data' => $data]);
     }
 
 
-    public function actionEditcate(){
+    public function actionEditcate()
+    {
         return $this->render('edit_cate');
+    }
+
+    /**
+     * 修改status字段
+     */
+    public function actionEditstatus()
+    {
+
+    }
+
+    /**
+     * 添加导航
+     */
+    public function actionAddcate()
+    {
+        if (Yii::$app->request->isAjax) {
+            $post = Yii::$app->request->post();
+            if (!isset($post['id']) || empty($post['id'])) {
+                $module = menu::new_save($post);
+            }
+            $module = menu::old_save($post);
+        }
+        return false;
     }
 
 }

@@ -82,9 +82,6 @@
         </tbody>
     </table>
 </div>
-<style type="text/css">
-
-</style>
 <script>
     layui.use(['form'], function () {
         form = layui.form;
@@ -98,6 +95,7 @@
             layer.msg('已删除!', {icon: 1, time: 1000});
         });
     }
+    
     function delAll(argument) {
 
         var data = tableCheck.getData();
@@ -108,6 +106,7 @@
             $(".layui-form-checked").not('.header').parents('tr').remove();
         });
     }
+    
     $(function () {
         $(".top_cate_click").click(function () {
             var menu_name = $("input[name='cate_name']").val();
@@ -133,19 +132,13 @@
 
                 },
                 error: function (error) {
+                    
                 }
             });
 
         })
     })
 </script>
-<script>var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();</script>
 </body>
 
 </html>

@@ -40,6 +40,10 @@ class CwjController extends BaseActiveController
             'check'=>[
                 'class' => 'app\controllers\cwj\CheckAction',
                 'modelClass' => $this->modelClass
+            ],
+            'nav'=>[
+                'class' => 'app\controllers\cwj\NavAction',
+                'modelClass' => $this->modelClass
             ]
         ];
         return $action;

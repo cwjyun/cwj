@@ -335,6 +335,23 @@ class CommonClass
     {
         return Yii::$app->Ras->encrypt($data);
     }
+
+    /**
+     * 调用nav接口
+     * @return bool|mixed
+     */
+    public static function get_nav()
+    {
+        $data['RasKey'] = \Yii::$app->params['RasKey'];
+        $json = json_encode($data);
+        $data['sign'] = self::set_aign($json);
+        $url = Yii::$app->params['nav'];
+        $res = self::postCurl_system($url, $data);
+        if ($res['code'] == 1) {
+            return $res['data'];
+        }
+        return false;
+    }
 }
 
 ?>

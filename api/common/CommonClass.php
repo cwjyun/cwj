@@ -67,6 +67,23 @@ class CommonClass
         return true;
     }
 
+
+    /**
+     * 无限极分类
+     * @param $items
+     * @return array
+     */
+    public static function genTree($items)
+    {
+        $array = [];
+        foreach ($items as $k => $v) {
+            $array[$v['id']] = $v;
+        }
+        foreach ($array as $item)
+            $array[$item['pid']]['son'][$item['id']] = &$array[$item['id']];
+        return isset($array[0]['son']) ? $array[0]['son'] : array();
+    }
+
 }
 
 ?>

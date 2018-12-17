@@ -39,4 +39,5 @@ return [
     ],
     'login' => WECHAT_API_URL . '/cwj/login',//登录接口
     'reg' => WECHAT_API_URL . '/cwj/reg',//登录接口
+    'nav' => WECHAT_API_URL . '/cwj/nav',//获取导航
 ];

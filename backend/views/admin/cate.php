@@ -12,7 +12,9 @@
 <div class="x-body">
     <div class="layui-row">
         <dev class="layui-form layui-col-md12 x-so layui-form-pane">
-            <button class="layui-btn top_cate_click" lay-submit="" lay-filter="sreach" onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate']) ?>')" ><i class="layui-icon"></i>增加
+            <button class="layui-btn top_cate_click" lay-submit="" lay-filter="sreach"
+                    onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate']) ?>')"><i
+                        class="layui-icon"></i>增加
             </button>
         </dev>
     </div>
@@ -49,7 +51,7 @@
                 <td><?= $v['id'] ?></td>
                 <td><?= $v['menu_url'] ?></td>
                 <td>
-                    <? if (isset($data[$k + 1]['num']) && $data[$k + 1]['num'] > $v['num']): ?>
+                    <? if ( isset($data[$k + 1]['num']) && $data[$k + 1]['num'] > $v['num'] && $data[$k + 1]['pid'] != $v['pid'] ): ?>
                         <?php for ($i = 0; $i < $v['num'] + 1; $i++) {
                             echo "&nbsp";
                         } ?>
@@ -62,7 +64,7 @@
                         <?= "├" . $v['menu_name'] ?>
                     <?php endif; ?>
                 </td>
-                <td><input type="text" class="layui-input x-sort" name="order" value="<?= $v['sort'] ?>"></td>
+                <td><?= $v['sort'] ?></td>
                 <td>
                     <input type="checkbox" name="switch"
                            lay-text="开启|停用" <?= $v['status'] == 1 ? "checked=checked" : ''; ?> lay-skin="switch">
@@ -73,7 +75,8 @@
                         <i class="layui-icon">&#xe642;</i>编辑
                     </button>
 
-                    <button class="layui-btn layui-btn-warm layui-btn-xs" onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate', 'id' => $v['id'], 'action' => 'add']) ?>')">
+                    <button class="layui-btn layui-btn-warm layui-btn-xs"
+                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate', 'id' => $v['id'], 'action' => 'add']) ?>')">
                         <i class="layui-icon">&#xe642;</i>添加子栏目
                     </button>
 

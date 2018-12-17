@@ -20,8 +20,6 @@ use backend\common\CommonClass;
  */
 class menu extends \yii\db\ActiveRecord
 {
-    public $tree;
-
     /**
      * {@inheritdoc}
      */
@@ -45,15 +43,30 @@ class menu extends \yii\db\ActiveRecord
      */
     public static function new_save($data)
     {
+        $message = [
+            'code' => 1,
+            'message' => '',
+        ];
+        $data['type'] = 1;  
+        $check_name = self::find()->where(['menu_name' => $data['menu_name']])->one();
+        if ($check_name) {
+            $message['code'] = 0;
+            $message['message'] = '导航名字重复';
+            return $message;
+        }
         $modle = new menu;
         $data['create_time'] = date("Y-m-d H:i:s");
         $data['update_time'] = date("Y-m-d H:i:s");
         $modle->setAttributes($data, true);
         $modle->save();
-        if (!$modle->errors) {
-            return true;
+        if ($modle->errors) {
+            print_r($modle->errors);
+            $message['code'] = 0;
+            $message['message'] = '数据存入出错';
+            $message['error'] = $modle->errors;
+            return $message;
         }
-        return $modle->errors;
+        return $message;
     }
 
 
@@ -62,7 +75,21 @@ class menu extends \yii\db\ActiveRecord
      */
     public static function get_all()
     {
-        return self::find()->asArray()->all();
+        return self::find()->where(['is_del' => 1])->asArray()->all();
+    }
+
+    public static function get_mune_one($id)
+    {
+        return self::find()->where(['id' => $id])->asArray()->one();
+    }
+
+
+    /**
+     * 获取单条数据
+     */
+    public static function get_one($id)
+    {
+        return self::find()->where(['id' => $id])->asArray()->one();
     }
 
     /**
@@ -71,7 +98,40 @@ class menu extends \yii\db\ActiveRecord
      */
     public static function old_save($data)
     {
+        $message = [
+            'code' => 1,
+            'message' => '',
+        ];
+        if (!$data['id']) {
+            $message['code'] = 0;
+            $message['message'] = '主键ID 不存在';
+            return $message;
+        }
+        $check_id = self::find()->where(['id' => $data['id']])->one();
+        if (!$check_id) {
+            return self:: new_save($data);
+        }
+        $models = self::updateAll($data, ['id' => $data['id']]);
+        if ($models) {
+            $message['code'] = 0;
+            $message['message'] = '保存失败';
+            return $message;
+        }
+        return $message;
+    }
 
+
+    /**
+     * 获取一条数据
+     * @param $id
+     * @return array|null|\yii\db\ActiveRecord
+     */
+    public static function del_one($id)
+    {
+        if (self::updateAll(['is_del' => 0], ['id' => $id])) {
+            return true;
+        }
+        return false;
     }
 
     /**

@@ -3,8 +3,7 @@
       <span class="layui-breadcrumb">
         <a href="">首页</a>
         <a href="">演示</a>
-        <a>
-          <cite>导航元素</cite></a>
+        <a><cite>导航元素</cite></a>
       </span>
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
        href="javascript:location.replace(location.href);" title="刷新">
@@ -13,8 +12,7 @@
 <div class="x-body">
     <div class="layui-row">
         <dev class="layui-form layui-col-md12 x-so layui-form-pane">
-            <input class="layui-input" placeholder="分类名" name="cate_name">
-            <button class="layui-btn top_cate_click" lay-submit="" lay-filter="sreach"><i class="layui-icon"></i>增加
+            <button class="layui-btn top_cate_click" lay-submit="" lay-filter="sreach" onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate']) ?>')" ><i class="layui-icon"></i>增加
             </button>
         </dev>
     </div>
@@ -30,7 +28,8 @@
                 <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i
                             class="layui-icon">&#xe605;</i></div>
             </th>
-            <th width="70">ID</th>
+            <th width="40">ID</th>
+            <th width="120">地址</th>
             <th>栏目名</th>
             <th width="50">排序</th>
             <th width="50">状态</th>
@@ -45,10 +44,10 @@
                 <input type="hidden" name="mune_pid" value="<?= $v['pid'] ?>">
                 <td>
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id="2"><i
-                                class="layui-icon">&#xe605;</i>
-                    </div>
+                                class="layui-icon">&#xe605;</i></div>
                 </td>
                 <td><?= $v['id'] ?></td>
+                <td><?= $v['menu_url'] ?></td>
                 <td>
                     <? if (isset($data[$k + 1]['num']) && $data[$k + 1]['num'] > $v['num']): ?>
                         <?php for ($i = 0; $i < $v['num'] + 1; $i++) {
@@ -70,16 +69,16 @@
                 </td>
                 <td class="td-manage">
                     <button class="layui-btn layui-btn layui-btn-xs"
-                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate','id'=>$v['id']]) ?>')">
+                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate', 'id' => $v['id'], 'action' => 'edit']) ?>')">
                         <i class="layui-icon">&#xe642;</i>编辑
                     </button>
-                    <button class="layui-btn layui-btn-warm layui-btn-xs"
-                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate','id'=>$v['id']]) ?>')">
+
+                    <button class="layui-btn layui-btn-warm layui-btn-xs" onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate', 'id' => $v['id'], 'action' => 'add']) ?>')">
                         <i class="layui-icon">&#xe642;</i>添加子栏目
                     </button>
-                    <button class="layui-btn-danger layui-btn layui-btn-xs" onclick="member_del(this,'要删除的id')"
-                            href="javascript:;">
-                        <i class="layui-icon">&#xe640;</i>删除
+
+                    <button class="layui-btn-danger layui-btn layui-btn-xs" onclick="member_del(this,<?= $v['id'] ?>)"
+                            href="javascript:;"><i class="layui-icon">&#xe640;</i>删除
                     </button>
                 </td>
             </tr>
@@ -96,9 +95,26 @@
     /*用户-删除*/
     function member_del(obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
-            //发异步删除数据
-            $(obj).parents("tr").remove();
-            layer.msg('已删除!', {icon: 1, time: 1000});
+            var url = "<?= Yii::$app->urlManager->createUrl(['admin/del'])?>";
+            $.ajax({
+                url: url,
+                data: {
+                    id: id
+                },
+                type: "POST",
+                dataType: "json",
+                success: function (msg) {
+                    if (!msg.code) {
+                        alert(msg.data.message);
+                    } else {
+                        $(obj).parents("tr").remove();
+                        layer.msg('已删除!', {icon: 1, time: 1000});
+                    }
+                },
+                error: function (error) {
+
+                }
+            });
         });
     }
 
@@ -114,40 +130,37 @@
     }
 
     $(function () {
-       $("input[name='switch']").click(function(){
-           alert("xx");
-       })
-       $(".top_cate_click").click(function () {
-            var menu_name = $("input[name='cate_name']").val();
-            var url = "<?= Yii::$app->urlManager->createUrl(['admin/addcate'])?>";
-            $.ajax({
-                url: url,
-                data: {
-                    id: 0,
-                    menu_name: menu_name,
-                    pid: 0,
-                    sort: 0,
-                    menu_url: 0,
-                    status: 0,
-                    type: 0
-                },
-                type: "POST",
-                dataType: "json",
-                success: function (msg) {
-                    if (!msg.code) {
-                        alert(msg.data.message);
-                    } else {
-                        alert('添加成功');
-                        javascript:location.replace(location.href);
-                    }
-
-                },
-                error: function (error) {
-
-                }
-            });
-
-        })
+//        $(".top_cate_click").click(function () {
+//            var menu_name = $("input[name='cate_name']").val();
+//            var url = "<?//= Yii::$app->urlManager->createUrl(['admin/addcate'])?>//";
+//            $.ajax({
+//                url: url,
+//                data: {
+//                    id: 0,
+//                    menu_name: menu_name,
+//                    pid: 0,
+//                    sort: 0,
+//                    menu_url: 0,
+//                    status: 0,
+//                    type: 0
+//                },
+//                type: "POST",
+//                dataType: "json",
+//                success: function (msg) {
+//                    if (!msg.code) {
+//                        alert(msg.data.message);
+//                    } else {
+//                        alert('添加成功');
+//                        javascript:location.replace(location.href);
+//                    }
+//
+//                },
+//                error: function (error) {
+//
+//                }
+//            });
+//
+//        })
     })
 </script>
 </body>

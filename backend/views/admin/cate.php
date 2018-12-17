@@ -27,7 +27,8 @@
         <thead>
         <tr>
             <th width="20">
-                <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i
+                            class="layui-icon">&#xe605;</i></div>
             </th>
             <th width="70">ID</th>
             <th>栏目名</th>
@@ -43,18 +44,23 @@
                 <input type="hidden" name="mune_id" value="<?= $v['id'] ?>">
                 <input type="hidden" name="mune_pid" value="<?= $v['pid'] ?>">
                 <td>
-                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id="2"><i class="layui-icon">&#xe605;</i>
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id="2"><i
+                                class="layui-icon">&#xe605;</i>
                     </div>
                 </td>
                 <td><?= $v['id'] ?></td>
                 <td>
                     <? if (isset($data[$k + 1]['num']) && $data[$k + 1]['num'] > $v['num']): ?>
-                        <?php for ($i = 0 ; $i< $v['num'] + 1; $i++){echo "&nbsp";} ?>
+                        <?php for ($i = 0; $i < $v['num'] + 1; $i++) {
+                            echo "&nbsp";
+                        } ?>
                         <i class="layui-icon x-show" status='true'>&#xe623;</i>
                         <?= $v['menu_name'] ?>
-                        <?php else:?>
-                        <?php for ($i = 0 ; $i< $v['num'] * 2; $i++){echo "&nbsp";} ?>
-                        <?= "├".$v['menu_name'] ?>
+                    <?php else: ?>
+                        <?php for ($i = 0; $i < $v['num'] * 2; $i++) {
+                            echo "&nbsp";
+                        } ?>
+                        <?= "├" . $v['menu_name'] ?>
                     <?php endif; ?>
                 </td>
                 <td><input type="text" class="layui-input x-sort" name="order" value="<?= $v['sort'] ?>"></td>
@@ -64,11 +70,11 @@
                 </td>
                 <td class="td-manage">
                     <button class="layui-btn layui-btn layui-btn-xs"
-                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate']) ?>')">
+                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate','id'=>$v['id']]) ?>')">
                         <i class="layui-icon">&#xe642;</i>编辑
                     </button>
                     <button class="layui-btn layui-btn-warm layui-btn-xs"
-                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate']) ?>')">
+                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate','id'=>$v['id']]) ?>')">
                         <i class="layui-icon">&#xe642;</i>添加子栏目
                     </button>
                     <button class="layui-btn-danger layui-btn layui-btn-xs" onclick="member_del(this,'要删除的id')"
@@ -95,7 +101,7 @@
             layer.msg('已删除!', {icon: 1, time: 1000});
         });
     }
-    
+
     function delAll(argument) {
 
         var data = tableCheck.getData();
@@ -106,14 +112,18 @@
             $(".layui-form-checked").not('.header').parents('tr').remove();
         });
     }
-    
+
     $(function () {
-        $(".top_cate_click").click(function () {
+       $("input[name='switch']").click(function(){
+           alert("xx");
+       })
+       $(".top_cate_click").click(function () {
             var menu_name = $("input[name='cate_name']").val();
             var url = "<?= Yii::$app->urlManager->createUrl(['admin/addcate'])?>";
             $.ajax({
                 url: url,
                 data: {
+                    id: 0,
                     menu_name: menu_name,
                     pid: 0,
                     sort: 0,
@@ -125,14 +135,15 @@
                 dataType: "json",
                 success: function (msg) {
                     if (!msg.code) {
-
+                        alert(msg.data.message);
                     } else {
-
+                        alert('添加成功');
+                        javascript:location.replace(location.href);
                     }
 
                 },
                 error: function (error) {
-                    
+
                 }
             });
 

@@ -118,6 +118,23 @@
                     </li >
                 </ul>
             </li>
+            
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe723;</i>
+                    <cite>文章管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="<?= \Yii::$app->urlManager->createUrl(['article/index'])?>">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>浏览文章</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+            
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
@@ -264,15 +281,5 @@
     <div class="copyright">Copyright ©2017 x-admin v2.3 All Rights Reserved</div>
 </div>
 <!-- 底部结束 -->
-<script>
-    //百度统计可去掉
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 </body>
 </html>

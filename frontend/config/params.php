@@ -34,6 +34,10 @@ return [
             'reg' => [
                 'title' => '小崔注册页',
                 'name' => '注册'
+            ] ,
+            'video' =>[
+                'title'=>'视频',
+                'name'=>'视频'
             ]
         ]
     ],

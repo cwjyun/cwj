@@ -10,7 +10,22 @@ use yii\helpers\Html;
 <!--[if IE 9]>
 <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en"> <!--<![endif]-->
+<!-- CSS Global Compulsory-->
+<head>
+<?= Html::cssFile('@path_root/plugins/bootstrap/css/bootstrap.min.css')?>
+<?= Html::cssFile('@path_root/css/style.css')?>
+<?= Html::cssFile('@path_root/css/headers/header1.css')?>
+<?= Html::cssFile('@path_root/plugins/bootstrap/css/bootstrap-responsive.min.css')?>
+<?= Html::cssFile('@path_root/css/style_responsive.css')?>
+<?= Html::cssFile('@path_root/favicon.ico',['rel'=>'shortcut icon'])?>
+<!-- CSS Implementing Plugins -->
+<?= Html::cssFile('@path_root/plugins/font-awesome/css/font-awesome.css')?>
+<?= Html::cssFile('@path_root/plugins/flexslider/flexslider.css')?>
+<?= Html::cssFile('@path_root/plugins/parallax-slider/css/parallax-slider.css')?>
+<!-- CSS Theme -->
+<?= Html::cssFile('@path_root/css/themes/default.css')?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<body>
 <!--=== Top ===-->
 <div class="top">
     <div class="container">

@@ -47,6 +47,15 @@ class PublicController extends Controller
     {
         return $this->render('reg');
     }
+
+    /**
+     * 视频设备
+     * @return string
+     *
+     */
+    public function actionVideo(){
+        return $this->render('video');
+    }
 }
 
 ?>

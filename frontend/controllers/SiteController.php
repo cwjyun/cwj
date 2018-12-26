@@ -63,6 +63,8 @@ class SiteController extends Controller
     }
 
     public function actionError(){
+//        echo Yii::$app->adminUrlManager->createAbsoluteUrl(['default/index']);
+//        die("x");
         return $this->render('error');
     }
 

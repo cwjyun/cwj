@@ -12,6 +12,13 @@ class MyController extends BaseController
      */
     public function actionIndex()
     {
+        die("是否到达这个模块");
+    }
+
+
+    public function actionDefalut()
+    {
+        die("是否到达这个模块");
     }
 
 

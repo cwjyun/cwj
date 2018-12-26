@@ -22,6 +22,14 @@ return [
         'password' => '3344134',
         'charset' => 'utf8',
     ],
+    'ecs' => [
+        'class' => 'yii\db\Connection',
+        'dsn' => 'mysql:host=47.93.246.251;dbname=ecs',
+        'username' => 'root',
+        'password' => '3344134',
+        'charset' => 'utf8',
+    ],
+    
     'redis' => [
         'class' => 'yii\redis\Connection',
         'hostname' => '47.93.246.251',

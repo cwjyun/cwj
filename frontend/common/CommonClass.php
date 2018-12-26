@@ -352,6 +352,22 @@ class CommonClass
         }
         return false;
     }
+
+
+    /**
+     * 获取头部导航信息
+     * @return bool|mixed
+     */
+    public static function get_header_info()
+    {
+        $redis_name = 'html:header';
+        $data = json_decode(Yii::$app->redis->get($redis_name),true);
+        if (!$data) {
+            $data = self::get_nav();
+            Yii::$app->redis->setex($redis_name, 7200, json_encode($data));
+        }
+        return $data;
+    }
 }
 
 ?>

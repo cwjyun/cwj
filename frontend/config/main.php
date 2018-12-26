@@ -16,6 +16,9 @@ $config = [
     'modules' => [
         'ajax' => [
             'class' => 'app\modules\ajax\Module'
+        ],
+        'cwj' => [
+            'class' => 'app\modules\cwj\Module'
         ]
     ],
     'components' => [
@@ -25,10 +28,10 @@ $config = [
         //验签
         'Ras' => [
             'class' => 'app\common\RasClass',
-            'RasClass'=>[
+            'RasClass' => [
                 'public_key_file' => $params['public_rsa_key'],
                 'private_key_file' => $params['private_rsa_key'],
-                'RasKey' =>    $params['RasKey'],
+                'RasKey' => $params['RasKey'],
             ]
         ],
         'user' => [
@@ -53,16 +56,24 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'db' => $params['cwj'],
         'cwj_db' => $params['cwj'],
         'log_db' => $params['log'],
         'wechat_db' => $params['wechat'],
+        'ecs_db' => $params['ecs'],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'suffix' => '.html',
             'rules' => [
+                'http://<_m:(admin)>.cwj.test' => '<_m' //方法二 多个二级域名同时适配也可以
+
             ],
         ],
+        'MyUrlManager' => [
+            'class' => 'app\common\MyUrlManager',
+            'domainName' => 'admin.cwj.test',
+        ]
     ],
     'params' => $params,
 ];
@@ -74,9 +85,9 @@ if (YII_ENV_DEV) {
         'allowedIPs' => ['172.*.*.*']
     ];
 
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
+    $config['bootstrap'][] = 'xgii';
+    $config['modules']['xgii'] = [
+        'class' => 'yii\xgii\Module',
         'allowedIPs' => ['172.*.*.*']
     ];
 }

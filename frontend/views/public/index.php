@@ -33,7 +33,7 @@
             <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i></p>
             <div class="da-img span6">
                 <div class="span6">
-                    <iframe src="http://player.vimeo.com/video/47911018" width="100%" height="320" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+<!--                    <iframe src="http://player.vimeo.com/video/47911018" width="100%" height="320" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>-->
                 </div>
             </div>
         </div>

@@ -25,6 +25,10 @@ use yii\helpers\Html;
 <!-- CSS Theme -->
 <?= Html::cssFile('@path_root/css/themes/default.css')?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        _audio.src = null;
+        _audio.load();
+    </script>
 <body>
 <!--=== Top ===-->
 <div class="top">

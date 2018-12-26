@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <?php
 use yii\helpers\Html;
 
 ?>
-<!DOCTYPE html>
 <!--[if IE 7]>
 <html lang="en" class="ie7"> <![endif]-->
 <!--[if IE 8]>

@@ -38,6 +38,14 @@ class menu extends \yii\db\ActiveRecord
 
 
     /**
+     * 获取制定数组的导航数据
+     */
+    public static function get_p_list($pid){
+
+        return self::find()->select('id,pid,sort,menu_name,menu_url,status,is_del,type')->where(['pid' => $pid, 'is_del' => 1])->asArray()->all();
+    }
+
+    /**
      * 新增导航数据
      * @param $data
      */
@@ -60,7 +68,6 @@ class menu extends \yii\db\ActiveRecord
         $modle->setAttributes($data, true);
         $modle->save();
         if ($modle->errors) {
-            print_r($modle->errors);
             $message['code'] = 0;
             $message['message'] = '数据存入出错';
             $message['error'] = $modle->errors;

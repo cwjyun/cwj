@@ -12,7 +12,8 @@ $config = [
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'admin/index',//默认路由，控制器+方法
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',

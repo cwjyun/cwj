@@ -63,7 +63,7 @@ class CommonClass
             $arr = $v;
             unset($arr['son']);
             $num = $num + 1;
-            $num = $v['pid']==0?1:$num;
+            $num = $v['pid'] == 0 ? 1 : $num;
             $arr ['num'] = $num;
             self::$list [] = $arr;
             if (isset($v['son']) && is_array($v['son'])) {
@@ -89,6 +89,20 @@ class CommonClass
         return isset($array[0]['son']) ? $array[0]['son'] : array();
     }
 
+
+    public static function int_key_array($data, $pid = 0)
+    {
+        static $array = [];
+        $i = 0;
+        foreach ($data as $k => $v){
+            $i++;
+            $array[$i] = $v;
+            if(isset($arrat[$i]['son']) || !empty($arrat[$i]['son'])){
+                self::int_key_array($arrat[$i]['son'],$v['id']) ;
+            }
+        }
+        return $array;
+    }
 
 }
 

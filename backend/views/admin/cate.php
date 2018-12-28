@@ -32,7 +32,7 @@
             </th>
             <th width="40">ID</th>
             <th width="120">地址</th>
-            <th>栏目名</th>
+            <th width="420">栏目名</th>
             <th width="50">排序</th>
             <th width="50">状态</th>
             <th width="220">操作</th>
@@ -79,7 +79,10 @@
                             onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['admin/editcate', 'id' => $v['id'], 'action' => 'add']) ?>')">
                         <i class="layui-icon">&#xe642;</i>添加子栏目
                     </button>
-
+                    <button class="layui-btn layui-btn-warm layui-btn-xs"
+                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['article/add', 'id' => $v['id'], 'action' => 'add']) ?>')">
+                        <i class="layui-icon">&#xe642;</i>添加文章
+                    </button>
                     <button class="layui-btn-danger layui-btn layui-btn-xs" onclick="member_del(this,<?= $v['id'] ?>)"
                             href="javascript:;"><i class="layui-icon">&#xe640;</i>删除
                     </button>

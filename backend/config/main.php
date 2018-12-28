@@ -36,6 +36,7 @@ $config = [
                 ],
             ],
         ],
+        'db' => $params['cwj'],
         //日志库
         'log_db' => $params['log'],
         //主库

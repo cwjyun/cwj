@@ -80,7 +80,7 @@
                         <i class="layui-icon">&#xe642;</i>添加子栏目
                     </button>
                     <button class="layui-btn layui-btn-warm layui-btn-xs"
-                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['article/add', 'id' => $v['id'], 'action' => 'add']) ?>')">
+                            onclick="x_admin_show('编辑','<?= Yii::$app->urlManager->createUrl(['article/add', 'id' => $v['id'],'pid'=>$v['pid'] ]) ?>')">
                         <i class="layui-icon">&#xe642;</i>添加文章
                     </button>
                     <button class="layui-btn-danger layui-btn layui-btn-xs" onclick="member_del(this,<?= $v['id'] ?>)"

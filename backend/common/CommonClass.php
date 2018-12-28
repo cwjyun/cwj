@@ -90,20 +90,42 @@ class CommonClass
     }
 
 
-    public static function int_key_array($data, $pid = 0)
+//   public static function key_array($items){
+//       foreach ($items as $item) {
+//           printf("%s%s", str_repeat('——', $deep), $item['name']);
+//           if (!empty($item['son'])) {
+//               key_array($item['son'], $deep + 1);
+//           }
+//       }
+//
+//    }
+
+    /**
+     * 无限极分类 索引数组形势
+     * @param $list
+     * @param string $pk
+     * @param string $pid
+     * @param string $child
+     * @param int $root
+     * @return array
+     */
+    public static function key_array($list,$pk='id',$pid='pid',$child='son',$root=0)
     {
-        static $array = [];
-        $i = 0;
-        foreach ($data as $k => $v){
-            $i++;
-            $array[$i] = $v;
-            if(isset($arrat[$i]['son']) || !empty($arrat[$i]['son'])){
-                self::int_key_array($arrat[$i]['son'],$v['id']) ;
+        $tree=array();
+        $packData=array();
+        foreach ($list as  $data) {
+            $packData[$data[$pk]] = $data; //$packData[1]=$data; $packData[2]=$data
+        }
+        foreach ($packData as $key =>$val){
+            if($val[$pid]==$root){   //代表跟节点
+                $tree[]=& $packData[$key];
+            }else{
+                //找到其父类
+                $packData[$val[$pid]][$child][]=& $packData[$key];
             }
         }
-        return $array;
+        return $tree;
     }
-
 }
 
 ?>

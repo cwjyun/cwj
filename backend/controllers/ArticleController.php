@@ -2,13 +2,13 @@
 
 namespace backend\controllers;
 
+use app\modules\ajax\controllers\ajax\loginAction;
 use Yii;
 use backend\models\menu;
 use app\models\aritcle\Aritcle;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 use backend\common\CommonClass;
-use yii\rest\Action;
 
 
 /**
@@ -19,12 +19,14 @@ class ArticleController extends BaseController
 
 
     /**
-     * 后台首页
+     * 文章列表
      * @return string
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        //获取导航前段需要处理的导航数据
+        $data['nav'] = $this->get_nav_info();
+        return $this->render('index', ['data' => $data]);
     }
 
     /**
@@ -56,6 +58,11 @@ class ArticleController extends BaseController
         ];
     }
 
+    
+    /**
+     * 验证文章字段
+     * @return array
+     */
     public function actionValidate()
     {
         $model = new aritcle();
@@ -67,6 +74,10 @@ class ArticleController extends BaseController
     }
 
 
+    /**
+     * 保存文章
+     * @return array
+     */
     public function actionSave()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
@@ -77,6 +88,13 @@ class ArticleController extends BaseController
         } else {
             return ['code' => 'error'];
         }
+    }
+
+
+    public function get_nav_info()
+    {
+        $select = ['menu_name as name', 'id', 'pid'];
+        return json_encode(CommonClass::key_array(menu::get_name_all($select), 'id', 'pid', 'children'));
     }
 
 }

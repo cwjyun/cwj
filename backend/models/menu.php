@@ -79,11 +79,15 @@ class menu extends \yii\db\ActiveRecord
     
 
     /**
-     * 无限极分类整理好的数据
+     * 获取所有数据
      */
     public static function get_all()
     {
         return self::find()->where(['is_del' => 1])->asArray()->all();
+    }
+
+    public static function get_name_all($array){
+        return self::find()->select($array)->where(['is_del' => 1])->asArray()->all();
     }
 
     public static function get_mune_one($id)

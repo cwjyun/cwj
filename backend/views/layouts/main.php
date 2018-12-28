@@ -20,9 +20,8 @@ AppAsset::register($this);
     <?= Html::jsFile('@path_root/js/xadmin.js',['charset'=>'utf-8']) ?>
 </head>
 <?php $this->beginBody() ?>
-<?= $content ?>
-
 <?php $this->endBody() ?>
+<?= $content ?>
 <?php $this->endPage() ?>
 
 

@@ -3,14 +3,15 @@
 namespace app\models\aritcle;
 
 use Yii;
-
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 /**
  * This is the model class for table "aritcle".
  *
  * @property int $id
  * @property string $aritcle_name 文章名字
  * @property string $aritcle_con 文章内容
- * @property int $type 文章类型 
+ * @property int $type 文章类型
  * @property int $m_id 文章所属ID
  * @property int $status 是否删除0删除1上线
  * @property int $is_hidden 是否隐藏 1显示0隐藏
@@ -27,6 +28,26 @@ class Aritcle extends \yii\db\ActiveRecord
     {
         return 'aritcle';
     }
+
+    //自动更新时间
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    # 创建之前
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['create_time', 'update_time'],
+                    # 修改之前
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['update_time']
+                ],
+                #设置默认值
+                'value' => date("Y-m-d H:i:s")
+            ]
+        ];
+    }
+
+
 
     /**
      * {@inheritdoc}

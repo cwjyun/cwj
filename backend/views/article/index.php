@@ -202,7 +202,6 @@
             nodes: <?= $data['nav']?>,
             click: function (node) {
                 var id = node.id;
-                var pid = node.pid;
                 window.location.href = "<?= Yii::$app->urlManager->createUrl(['article/index'])?>?id=" + id;
                 var $select = $($(this)[0].elem).parents(".layui-form-select");
                 $select.removeClass("layui-form-selected").find(".layui-select-title span").html(node.name).end().find("input:hidden[name='selectID']").val(node.id);

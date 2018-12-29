@@ -40,7 +40,8 @@ class menu extends \yii\db\ActiveRecord
     /**
      * 获取制定数组的导航数据
      */
-    public static function get_p_list($pid){
+    public static function get_p_list($pid)
+    {
 
         return self::find()->select('id,pid,sort,menu_name,menu_url,status,is_del,type')->where(['pid' => $pid, 'is_del' => 1])->asArray()->all();
     }
@@ -55,7 +56,7 @@ class menu extends \yii\db\ActiveRecord
             'code' => 1,
             'message' => '',
         ];
-        $data['type'] = 1;  
+        $data['type'] = 1;
         $check_name = self::find()->where(['menu_name' => $data['menu_name']])->one();
         if ($check_name) {
             $message['code'] = 0;
@@ -77,21 +78,29 @@ class menu extends \yii\db\ActiveRecord
     }
 
 
-    public static function get_defalut_id(){
-        
+    public static function get_defalut_id()
+    {
+
     }
 
-    
 
     /**
      * 获取所有数据
+     * 添加redis缓存
      */
     public static function get_all()
     {
-        return self::find()->where(['is_del' => 1])->asArray()->all();
+        $redis_name = 'cwj:menu_nav_info';
+        $menu_nav_info = json_decode(Yii::$app->redis->get($redis_name), true);
+        if (!$menu_nav_info) {
+            $menu_nav_info = self::find()->where(['is_del' => 1])->asArray()->all();
+            Yii::$app->redis->setex($redis_name, 18000, json_encode($menu_nav_info));
+        }
+        return $menu_nav_info;
     }
 
-    public static function get_name_all($array){
+    public static function get_name_all($array)
+    {
         return self::find()->select($array)->where(['is_del' => 1])->asArray()->all();
     }
 
@@ -150,6 +159,7 @@ class menu extends \yii\db\ActiveRecord
         }
         return false;
     }
+
     /**
      * {@inheritdoc}
      */

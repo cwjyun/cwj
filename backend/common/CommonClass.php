@@ -2,6 +2,7 @@
 
 namespace backend\common;
 
+use backend\models\menu;
 use Yii;
 
 class CommonClass
@@ -142,6 +143,17 @@ class CommonClass
             }
         }
         return self::$list;
+    }
+
+
+    public static function get_menu_nav_dict()
+    {
+        $arr = menu::get_all();
+        $result = [0 => '选择栏目'];
+        foreach ($arr as $k => $v) {
+            $result[$v['id']] = $v['menu_name'];
+        }
+      return $result;
     }
 }
 

@@ -14,12 +14,14 @@ class BaseController extends Controller
 {
     public $enableCsrfValidation = false;
 
+    public $nav_dict;
 
     public function beforeAction($action)
     {
         if (!Yii::$app->session['id'] && Yii::$app->controller->action->id != 'login') {
             $this->redirect(['base/login']);
         }
+        $this->nav_dict = CommonClass::get_menu_nav_dict();
         return parent::beforeAction($action);
     }
 

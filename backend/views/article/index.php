@@ -52,7 +52,7 @@
                 <div class="layui-input-inline">
                     <div class="layui-unselect layui-form-select downpanel">
                         <div class="layui-select-title">
-                            <span class="layui-input layui-unselect" id="treeclass">选择栏目</span>
+                            <span class="layui-input layui-unselect" id="treeclass"><?= $this->context->nav_dict[Yii::$app->request->get('id',0)]?></span>
                             <input type="hidden" name="selectID" value="0">
                             <i class="layui-edge"></i>
                         </div>
@@ -142,7 +142,6 @@
         laydate.render({
             elem: '#start' //指定元素
         });
-
         //执行一个laydate实例
         laydate.render({
             elem: '#end' //指定元素
@@ -181,12 +180,8 @@
             layer.msg('已删除!', {icon: 1, time: 1000});
         });
     }
-
-
     function delAll(argument) {
-
         var data = tableCheck.getData();
-
         layer.confirm('确认要删除吗？' + data, function (index) {
             //捉到所有被选中的，发异步进行删除
             layer.msg('删除成功', {icon: 1});
@@ -202,9 +197,9 @@
             nodes: <?= $data['nav']?>,
             click: function (node) {
                 var id = node.id;
-                window.location.href = "<?= Yii::$app->urlManager->createUrl(['article/index'])?>?id=" + id;
                 var $select = $($(this)[0].elem).parents(".layui-form-select");
                 $select.removeClass("layui-form-selected").find(".layui-select-title span").html(node.name).end().find("input:hidden[name='selectID']").val(node.id);
+                window.location.href = "<?= Yii::$app->urlManager->createUrl(['article/index'])?>?id=" + id;
             }
         });
         $(".downpanel").on("click", ".layui-select-title", function (e) {

@@ -9,7 +9,7 @@ use app\models\aritcle\Aritcle;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 use backend\common\CommonClass;
-
+use backend\common\FunctionClass;
 
 /**
  * Site controller
@@ -25,7 +25,9 @@ class ArticleController extends BaseController
     public function actionIndex()
     {
         //获取导航前段需要处理的导航数据
-        $data['nav'] = $this->get_nav_info();
+        $data['nav'] = FunctionClass::get_nav_info();
+        $data['aritcle_count'] = FunctionClass::aritcle_count();
+        $data['aritcle_list'] = FunctionClass::aritcle_list(Yii::$app->request->get('id',26));
         return $this->render('index', ['data' => $data]);
     }
 
@@ -58,7 +60,7 @@ class ArticleController extends BaseController
         ];
     }
 
-    
+
     /**
      * 验证文章字段
      * @return array
@@ -90,11 +92,5 @@ class ArticleController extends BaseController
         }
     }
 
-
-    public function get_nav_info()
-    {
-        $select = ['menu_name as name', 'id', 'pid'];
-        return json_encode(CommonClass::key_array(menu::get_name_all($select), 'id', 'pid', 'children'));
-    }
 
 }

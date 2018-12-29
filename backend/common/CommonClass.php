@@ -109,22 +109,39 @@ class CommonClass
      * @param int $root
      * @return array
      */
-    public static function key_array($list,$pk='id',$pid='pid',$child='son',$root=0)
+    public static function key_array($list, $pk = 'id', $pid = 'pid', $child = 'son', $root = 0)
     {
-        $tree=array();
-        $packData=array();
-        foreach ($list as  $data) {
+        $tree = array();
+        $packData = array();
+        foreach ($list as $data) {
             $packData[$data[$pk]] = $data; //$packData[1]=$data; $packData[2]=$data
         }
-        foreach ($packData as $key =>$val){
-            if($val[$pid]==$root){   //代表跟节点
-                $tree[]=& $packData[$key];
-            }else{
+        foreach ($packData as $key => $val) {
+            if ($val[$pid] == $root) {   //代表跟节点
+                $tree[] =& $packData[$key];
+            } else {
                 //找到其父类
-                $packData[$val[$pid]][$child][]=& $packData[$key];
+                $packData[$val[$pid]][$child][] =& $packData[$key];
             }
         }
         return $tree;
+    }
+
+
+    /**
+     * 无限级分类 回去所有的ID
+     * @param $data
+     * @param string $key
+     */
+    public static function get_aritcle_id($list)
+    {
+        self::$list[] = $list['id'];
+        if (isset($list['son']) && !empty($list['son'])) {
+            foreach ($list['son'] as $k => $v) {
+                self::get_aritcle_id($v);
+            }
+        }
+        return self::$list;
     }
 }
 

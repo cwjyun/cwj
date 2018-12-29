@@ -5,6 +5,7 @@ namespace app\models\aritcle;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+
 /**
  * This is the model class for table "aritcle".
  *
@@ -48,7 +49,6 @@ class Aritcle extends \yii\db\ActiveRecord
     }
 
 
-
     /**
      * {@inheritdoc}
      */
@@ -61,6 +61,26 @@ class Aritcle extends \yii\db\ActiveRecord
             [['create_time', 'update_time'], 'safe'],
             [['aritcle_name'], 'string', 'max' => 255],
         ];
+    }
+
+
+    /**
+     * 获取总条数
+     * @return int|string
+     */
+    public static function get_count()
+    {
+        return self::find()->where(['is_hidden' => 1])->count();
+    }
+
+
+    /**
+     *  如果ID不存在 获取默认的第一个导航的所有数据
+     * @param $id
+     */
+    public static function get_list($id)
+    {
+        return self::find()->where(['m_id'=>$id,'is_hidden'=>1])->asArray()->all();
     }
 
     /**

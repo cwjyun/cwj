@@ -70,7 +70,7 @@
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
         <button class="layui-btn" onclick="x_admin_show('添加用户','./order-add.html')"><i class="layui-icon"></i>添加
         </button>
-        <span class="x-right" style="line-height:40px">共有数据：88 条</span>
+        <span class="x-right" style="line-height:40px">共有数据：<?= $data['aritcle_count'] ?> 条</span>
     </xblock>
     <table class="layui-table">
         <thead>
@@ -93,30 +93,33 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>
-                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i>
-                </div>
-            </td>
-            <td>2</td>
-            <td>老王:18925139194</td>
-            <td>7829.10</td>
-            <td>7854.10</td>
-            <td>待确认</td>
-            <td>未支付</td>
-            <td>未发货</td>
-            <td>其他方式</td>
-            <td>申通物流</td>
-            <td>2017-08-17 18:22</td>
-            <td class="td-manage">
-                <a title="查看" onclick="x_admin_show('编辑','order-view.html')" href="javascript:;">
-                    <i class="layui-icon">&#xe63c;</i>
-                </a>
-                <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                    <i class="layui-icon">&#xe640;</i>
-                </a>
-            </td>
-        </tr>
+        <?php foreach ($data['aritcle_list'] as $k => $v): ?>
+            <tr>
+                <td>
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i
+                                class="layui-icon">&#xe605;</i>
+                    </div>
+                </td>
+                <td><?= $v['id'] ?></td>
+                <td><?= $v['aritcle_name'] ?></td>
+                <td><?= $v['aritcle_con'] ?></td>
+                <td><?= $v['type'] ?></td>
+                <td><?= $v['m_id'] ?></td>
+                <td><?= $v['is_hidden'] == 1 ? "否" : "是" ?></td>
+                <td><?= $v['status'] == 1 ? "否" : "是" ?></td>
+                <td><?= $v['is_discuss'] == 1 ? "否" : "是" ?></td>
+                <td><?= $v['create_time'] ?></td>
+                <td><?= $v['update_time'] ?></td>
+                <td class="td-manage">
+                    <a title="查看" onclick="x_admin_show('编辑','order-view.html')" href="javascript:;">
+                        <i class="layui-icon">&#xe63c;</i>
+                    </a>
+                    <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                        <i class="layui-icon">&#xe640;</i>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
     <div class="page">
@@ -200,6 +203,7 @@
             click: function (node) {
                 var id = node.id;
                 var pid = node.pid;
+                window.location.href = "<?= Yii::$app->urlManager->createUrl(['article/index'])?>?id=" + id;
                 var $select = $($(this)[0].elem).parents(".layui-form-select");
                 $select.removeClass("layui-form-selected").find(".layui-select-title span").html(node.name).end().find("input:hidden[name='selectID']").val(node.id);
             }
@@ -218,6 +222,7 @@
     });
 </script>
 </script>
-</body>
+<
+/body>
 
-</html>
+< /html>

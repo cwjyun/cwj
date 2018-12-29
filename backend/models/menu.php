@@ -76,6 +76,11 @@ class menu extends \yii\db\ActiveRecord
         return $message;
     }
 
+
+    public static function get_defalut_id(){
+        
+    }
+
     
 
     /**
@@ -145,7 +150,6 @@ class menu extends \yii\db\ActiveRecord
         }
         return false;
     }
-
     /**
      * {@inheritdoc}
      */
